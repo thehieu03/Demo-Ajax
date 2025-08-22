@@ -1,0 +1,14 @@
+D:\BackEndC#\TheHieuPRN232\Entity\bin\Debug\net8.0\Entity.deps.json
+D:\BackEndC#\TheHieuPRN232\Entity\bin\Debug\net8.0\Entity.runtimeconfig.json
+D:\BackEndC#\TheHieuPRN232\Entity\bin\Debug\net8.0\Entity.dll
+D:\BackEndC#\TheHieuPRN232\Entity\bin\Debug\net8.0\Entity.pdb
+D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\Entity.csproj.AssemblyReference.cache
+D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\Entity.AssemblyInfoInputs.cache
+D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\Entity.AssemblyInfo.cs
+D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\Entity.csproj.CoreCompileInputs.cache
+D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\Entity.dll
+D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\refint\Entity.dll
+D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\Entity.pdb
+D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\Entity.genruntimeconfig.cache
+D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\ref\Entity.dll

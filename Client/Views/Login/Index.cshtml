@@ -1,0 +1,702 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "_Layout";
+}
+
+<!-- Login/Register Section -->
+<section class="auth-section min-vh-100 d-flex align-items-center justify-content-center py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-8">
+                <!-- Auth Card -->
+                <div class="card shadow-xl border-0 rounded-4 overflow-hidden">
+                    <div class="row g-0">
+                        <!-- Left Side - Branding -->
+                        <div class="col-lg-5 d-none d-lg-block">
+                            <div class="auth-bg h-100 d-flex align-items-center justify-content-center text-white position-relative">
+                                <div class="text-center position-relative z-3">
+                                    <div class="mb-5">
+                                        <div class="logo-container mb-4">
+                                            <i class="fas fa-newspaper fa-5x mb-3 text-white"></i>
+                                        </div>
+                                        <h1 class="fw-bold mb-3 display-6">News Management</h1>
+                                        <p class="lead opacity-90 mb-4">Stay informed with the latest news and updates</p>
+                                    </div>
+                                    <div class="auth-features">
+                                        <div class="feature-item d-flex align-items-center mb-4">
+                                            <div class="feature-icon me-3">
+                                                <i class="fas fa-bolt fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1 fw-bold">Real-time Updates</h5>
+                                                <p class="mb-0 opacity-75">Get instant notifications</p>
+                                            </div>
+                                        </div>
+                                        <div class="feature-item d-flex align-items-center mb-4">
+                                            <div class="feature-icon me-3">
+                                                <i class="fas fa-user-cog fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1 fw-bold">Personalized Content</h5>
+                                                <p class="mb-0 opacity-75">Tailored to your interests</p>
+                                            </div>
+                                        </div>
+                                        <div class="feature-item d-flex align-items-center">
+                                            <div class="feature-icon me-3">
+                                                <i class="fas fa-shield-alt fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1 fw-bold">Secure Access</h5>
+                                                <p class="mb-0 opacity-75">Your data is protected</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Animated background elements -->
+                                <div class="position-absolute top-0 start-0 w-100 h-100 overflow-hidden">
+                                    <div class="floating-shape shape-1"></div>
+                                    <div class="floating-shape shape-2"></div>
+                                    <div class="floating-shape shape-3"></div>
+                                    <div class="floating-shape shape-4"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side - Forms -->
+                        <div class="col-lg-7">
+                            <div class="p-5">
+                                <!-- Toggle Buttons -->
+                                <div class="text-center mb-5">
+                                    <div class="btn-group btn-group-lg" role="group" id="authToggle">
+                                        <button type="button" class="btn btn-outline-primary active" data-form="login">
+                                            <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                                        </button>
+                                        <button type="button" class="btn btn-outline-primary" data-form="register">
+                                            <i class="fas fa-user-plus me-2"></i>Sign Up
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Login Form -->
+                                <div id="loginForm" class="auth-form">
+                                    <div class="text-center mb-5">
+                                        <h2 class="fw-bold text-dark mb-3">Welcome Back!</h2>
+                                        <p class="text-muted fs-5">Sign in to your account to continue</p>
+                                    </div>
+
+                                    <form id="loginFormElement">
+                                        <div class="mb-4">
+                                            <label for="loginEmail" class="form-label fw-semibold fs-6">
+                                                <i class="fas fa-envelope me-2 text-primary"></i>Email Address
+                                            </label>
+                                            <div class="input-group input-group-lg">
+                                                <span class="input-group-text bg-light border-end-0">
+                                                    <i class="fas fa-envelope text-muted"></i>
+                                                </span>
+                                                <input type="email" class="form-control border-start-0" id="loginEmail" 
+                                                       placeholder="Enter your email address" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label for="loginPassword" class="form-label fw-semibold fs-6">
+                                                <i class="fas fa-lock me-2 text-primary"></i>Password
+                                            </label>
+                                            <div class="input-group input-group-lg">
+                                                <span class="input-group-text bg-light border-end-0">
+                                                    <i class="fas fa-lock text-muted"></i>
+                                                </span>
+                                                <input type="password" class="form-control border-start-0" id="loginPassword" 
+                                                       placeholder="Enter your password" required>
+                                                <button class="btn btn-outline-secondary border-start-0" type="button" 
+                                                        onclick="togglePassword('loginPassword')">
+                                                    <i class="fas fa-eye" id="loginPasswordIcon"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between align-items-center mb-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                                <label class="form-check-label text-muted fw-semibold" for="rememberMe">
+                                                    Remember me
+                                                </label>
+                                            </div>
+                                            <a href="#" class="text-primary text-decoration-none fw-semibold">
+                                                Forgot password?
+                                            </a>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold mb-4">
+                                            <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <!-- Register Form -->
+                                <div id="registerForm" class="auth-form" style="display: none;">
+                                    <div class="text-center mb-5">
+                                        <h2 class="fw-bold text-dark mb-3">Create Account</h2>
+                                        <p class="text-muted fs-5">Join us and start your journey</p>
+                                    </div>
+
+                                    <form id="registerFormElement">
+                                        <div class="mb-4">
+                                            <label for="registerUsername" class="form-label fw-semibold fs-6">
+                                                <i class="fas fa-user me-2 text-primary"></i>Username
+                                            </label>
+                                            <div class="input-group input-group-lg">
+                                                <span class="input-group-text bg-light border-end-0">
+                                                    <i class="fas fa-user text-muted"></i>
+                                                </span>
+                                                <input type="text" class="form-control border-start-0" id="registerUsername" 
+                                                       placeholder="Choose a username" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label for="registerEmail" class="form-label fw-semibold fs-6">
+                                                <i class="fas fa-envelope me-2 text-primary"></i>Email Address
+                                            </label>
+                                            <div class="input-group input-group-lg">
+                                                <span class="input-group-text bg-light border-end-0">
+                                                    <i class="fas fa-envelope text-muted"></i>
+                                                </span>
+                                                <input type="email" class="form-control border-start-0" id="registerEmail" 
+                                                       placeholder="Enter your email address" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label for="registerPassword" class="form-label fw-semibold fs-6">
+                                                <i class="fas fa-lock me-2 text-primary"></i>Password
+                                            </label>
+                                            <div class="input-group input-group-lg">
+                                                <span class="input-group-text bg-light border-end-0">
+                                                    <i class="fas fa-lock text-muted"></i>
+                                                </span>
+                                                <input type="password" class="form-control border-start-0" id="registerPassword" 
+                                                       placeholder="Create a strong password" required>
+                                                <button class="btn btn-outline-secondary border-start-0" type="button" 
+                                                        onclick="togglePassword('registerPassword')">
+                                                    <i class="fas fa-eye" id="registerPasswordIcon"></i>
+                                                </button>
+                                            </div>
+                                            <div class="password-strength mt-3">
+                                                <div class="progress" style="height: 6px;">
+                                                    <div class="progress-bar" id="passwordStrengthBar" role="progressbar"></div>
+                                                </div>
+                                                <small class="text-muted fw-semibold" id="passwordStrengthText">Password strength</small>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label for="registerConfirmPassword" class="form-label fw-semibold fs-6">
+                                                <i class="fas fa-lock me-2 text-primary"></i>Confirm Password
+                                            </label>
+                                            <div class="input-group input-group-lg">
+                                                <span class="input-group-text bg-light border-end-0">
+                                                    <i class="fas fa-lock text-muted"></i>
+                                                </span>
+                                                <input type="password" class="form-control border-start-0" id="registerConfirmPassword" 
+                                                       placeholder="Confirm your password" required>
+                                                <button class="btn btn-outline-secondary border-start-0" type="button" 
+                                                        onclick="togglePassword('registerConfirmPassword')">
+                                                    <i class="fas fa-eye" id="registerConfirmPasswordIcon"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                                <label class="form-check-label text-muted fw-semibold" for="agreeTerms">
+                                                    I agree to the <a href="#" class="text-primary">Terms of Service</a> and 
+                                                    <a href="#" class="text-primary">Privacy Policy</a>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold">
+                                            <i class="fas fa-user-plus me-2"></i>Create Account
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Toast Container -->
+<div class="toast-container position-fixed top-0 end-0 p-3" id="toastContainer"></div>
+
+<style>
+    .auth-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding-top: 80px;
+    }
+
+    .auth-bg {
+        background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+        position: relative;
+    }
+
+    .auth-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        pointer-events: none;
+    }
+
+    .logo-container {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        backdrop-filter: blur(10px);
+    }
+
+    .auth-features {
+        text-align: left;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .feature-item {
+        padding: 15px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .feature-icon {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .floating-shape {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 8s ease-in-out infinite;
+        backdrop-filter: blur(5px);
+    }
+
+    .shape-1 {
+        width: 100px;
+        height: 100px;
+        top: 15%;
+        left: 10%;
+        animation-delay: 0s;
+    }
+
+    .shape-2 {
+        width: 80px;
+        height: 80px;
+        top: 55%;
+        right: 15%;
+        animation-delay: 2s;
+    }
+
+    .shape-3 {
+        width: 60px;
+        height: 60px;
+        bottom: 25%;
+        left: 20%;
+        animation-delay: 4s;
+    }
+
+    .shape-4 {
+        width: 40px;
+        height: 40px;
+        top: 35%;
+        right: 25%;
+        animation-delay: 6s;
+    }
+
+    @@keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-25px) rotate(180deg); }
+    }
+
+    .auth-form {
+        transition: all 0.4s ease;
+    }
+
+    .btn-group .btn {
+        border-radius: 30px;
+        padding: 12px 30px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border-width: 2px;
+    }
+
+    .btn-group .btn.active {
+        background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+        border-color: #0d6efd;
+        color: white;
+        box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+    }
+
+    .form-control {
+        border-radius: 12px;
+        border: 2px solid #e9ecef;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+        transform: translateY(-1px);
+    }
+
+    .input-group-text {
+        border: 2px solid #e9ecef;
+        background: #f8f9fa;
+        border-radius: 12px 0 0 12px;
+    }
+
+    .input-group .form-control {
+        border-left: none;
+        border-radius: 0 12px 12px 0;
+    }
+
+    .input-group .btn {
+        border-radius: 0 12px 12px 0;
+        border-left: none;
+    }
+
+    .password-strength .progress {
+        border-radius: 10px;
+        background: #e9ecef;
+    }
+
+    .password-strength .progress-bar {
+        transition: all 0.4s ease;
+        border-radius: 10px;
+    }
+
+    .password-strength.weak .progress-bar {
+        background: linear-gradient(90deg, #dc3545, #fd7e14);
+        width: 25%;
+    }
+
+    .password-strength.fair .progress-bar {
+        background: linear-gradient(90deg, #ffc107, #fd7e14);
+        width: 50%;
+    }
+
+    .password-strength.good .progress-bar {
+        background: linear-gradient(90deg, #17a2b8, #20c997);
+        width: 75%;
+    }
+
+    .password-strength.strong .progress-bar {
+        background: linear-gradient(90deg, #28a745, #20c997);
+        width: 100%;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+        border: none;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(13, 110, 253, 0.3);
+    }
+
+    .toast {
+        z-index: 9999;
+        border-radius: 12px;
+    }
+
+    /* Responsive adjustments */
+    @@media (max-width: 991.98px) {
+        .auth-section {
+            padding-top: 20px;
+        }
+        
+        .card {
+            margin: 0 15px;
+        }
+
+        .btn-group .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+    }
+
+    /* Loading animation */
+    .btn-loading {
+        position: relative;
+        pointer-events: none;
+    }
+
+    .btn-loading::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        margin: auto;
+        border: 2px solid transparent;
+        border-top-color: #ffffff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    @@keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Form validation styles */
+    .form-control.is-valid {
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.15);
+    }
+
+    .form-control.is-invalid {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.15);
+    }
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            initializeAuth();
+        });
+
+        function initializeAuth() {
+            $('#authToggle .btn').on('click', function() {
+                const formType = $(this).data('form');
+                $('#authToggle .btn').removeClass('active');
+                $(this).addClass('active');
+                $('.auth-form').hide();
+                $(`#${formType}Form`).fadeIn(400);
+            });
+
+            $('#loginFormElement').on('submit', function(e) {
+                e.preventDefault();
+                handleLogin();
+            });
+
+            $('#registerFormElement').on('submit', function(e) {
+                e.preventDefault();
+                handleRegister();
+            });
+
+            $('#registerPassword').on('input', function() {
+                checkPasswordStrength($(this).val());
+            });
+
+            $('#registerConfirmPassword').on('input', function() {
+                checkPasswordMatch();
+            });
+        }
+
+        function handleLogin() {
+            const email = $('#loginEmail').val();
+            const password = $('#loginPassword').val();
+            const rememberMe = $('#rememberMe').is(':checked');
+
+            if (!email || !password) {
+                showToast('Please fill in all required fields', 'error');
+                return;
+            }
+
+            const submitBtn = $('#loginFormElement button[type="submit"]');
+            submitBtn.addClass('btn-loading').prop('disabled', true);
+
+            setTimeout(() => {
+                $.ajax({
+                    url: '/api/auth/login',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        email: email,
+                        password: password,
+                        rememberMe: rememberMe
+                    }),
+                    success: function(response) {
+                        showToast('Login successful! Redirecting...', 'success');
+                        setTimeout(() => {
+                            window.location.href = '/Home';
+                        }, 1500);
+                    },
+                    error: function(xhr) {
+                        showToast('Login failed. Please check your credentials.', 'error');
+                    },
+                    complete: function() {
+                        submitBtn.removeClass('btn-loading').prop('disabled', false);
+                    }
+                });
+            }, 1000);
+        }
+
+        function handleRegister() {
+            const username = $('#registerUsername').val();
+            const email = $('#registerEmail').val();
+            const password = $('#registerPassword').val();
+            const confirmPassword = $('#registerConfirmPassword').val();
+            const agreeTerms = $('#agreeTerms').is(':checked');
+
+            if (!username || !email || !password || !confirmPassword) {
+                showToast('Please fill in all required fields', 'error');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showToast('Passwords do not match', 'error');
+                return;
+            }
+
+            if (!agreeTerms) {
+                showToast('Please agree to the terms and conditions', 'error');
+                return;
+            }
+
+            const submitBtn = $('#registerFormElement button[type="submit"]');
+            submitBtn.addClass('btn-loading').prop('disabled', true);
+
+            setTimeout(() => {
+                $.ajax({
+                    url: '/api/auth/register',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        username: username,
+                        email: email,
+                        password: password
+                    }),
+                    success: function(response) {
+                        showToast('Registration successful! Please check your email for verification.', 'success');
+                        $('#authToggle .btn[data-form="login"]').click();
+                        $('#registerFormElement')[0].reset();
+                    },
+                    error: function(xhr) {
+                        showToast('Registration failed. Please try again.', 'error');
+                    },
+                    complete: function() {
+                        submitBtn.removeClass('btn-loading').prop('disabled', false);
+                    }
+                });
+            }, 1000);
+        }
+
+        function togglePassword(inputId) {
+            const input = $(`#${inputId}`);
+            const icon = $(`#${inputId}Icon`);
+            
+            if (input.attr('type') === 'password') {
+                input.attr('type', 'text');
+                icon.removeClass('fa-eye').addClass('fa-eye-slash');
+            } else {
+                input.attr('type', 'password');
+                icon.removeClass('fa-eye-slash').addClass('fa-eye');
+            }
+        }
+
+        function checkPasswordStrength(password) {
+            let strength = 0;
+            let feedback = '';
+
+            if (password.length >= 8) strength++;
+            if (/[a-z]/.test(password)) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+            const $container = $('.password-strength');
+            const $text = $('#passwordStrengthText');
+
+            $container.removeClass('weak fair good strong');
+
+            switch(strength) {
+                case 0:
+                case 1:
+                    $container.addClass('weak');
+                    feedback = 'Very weak';
+                    break;
+                case 2:
+                    $container.addClass('fair');
+                    feedback = 'Fair';
+                    break;
+                case 3:
+                    $container.addClass('good');
+                    feedback = 'Good';
+                    break;
+                case 4:
+                case 5:
+                    $container.addClass('strong');
+                    feedback = 'Strong';
+                    break;
+            }
+
+            $text.text(feedback);
+        }
+
+        function checkPasswordMatch() {
+            const password = $('#registerPassword').val();
+            const confirmPassword = $('#registerConfirmPassword').val();
+            const $confirmInput = $('#registerConfirmPassword');
+
+            if (confirmPassword && password !== confirmPassword) {
+                $confirmInput.addClass('is-invalid');
+                $confirmInput.removeClass('is-valid');
+            } else if (confirmPassword) {
+                $confirmInput.addClass('is-valid');
+                $confirmInput.removeClass('is-invalid');
+            } else {
+                $confirmInput.removeClass('is-valid is-invalid');
+            }
+        }
+
+        function showToast(message, type = 'info') {
+            const toastId = 'toast-' + Date.now();
+            const bgClass = type === 'error' ? 'bg-danger' : type === 'success' ? 'bg-success' : 'bg-info';
+            
+            const toastHtml = `
+                <div class="toast ${bgClass} text-white" id="${toastId}" role="alert">
+                    <div class="toast-body">
+                        <i class="fas fa-${type === 'error' ? 'exclamation-triangle' : type === 'success' ? 'check-circle' : 'info-circle'} me-2"></i>
+                        ${message}
+                    </div>
+                </div>
+            `;
+
+            $('#toastContainer').append(toastHtml);
+            const toast = new bootstrap.Toast(document.getElementById(toastId));
+            toast.show();
+
+            $(`#${toastId}`).on('hidden.bs.toast', function() {
+                $(this).remove();
+            });
+        }
+    </script>
+}
