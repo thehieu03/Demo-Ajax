@@ -14,4 +14,7 @@ public class SystemAccountRepository   :ISystemAccountRepository
     public Task Update(SystemAccount entity)=> SystemAccountDao.Update(entity);
 
     public Task Delete(short id)=> SystemAccountDao.Delete(id);
+
+    public Task<SystemAccount?> GetAccountByEmailOrPassword(string email, string password) =>
+        SystemAccountDao.Login(email, password);
 }

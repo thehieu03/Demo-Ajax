@@ -1,9 +1,12 @@
-﻿namespace Server.Boostraping;
+﻿using Server.Services;
+
+namespace Server.Boostraping;
 
 public static class RegisterServices
 {
     public static IServiceCollection UseBoostraping(this IServiceCollection services, IConfiguration configuration)
-    {
+    {   
+        services.AddHostedService<WorkerServices>();
         services.AddControllers().AddOData(options =>
             options.Filter().Select().OrderBy().Count().SetMaxTop(100));
         services.AddScoped<ISystemAccountRepository, SystemAccountRepository>();

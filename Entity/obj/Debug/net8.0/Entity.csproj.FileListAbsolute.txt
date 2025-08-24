@@ -12,3 +12,4 @@ D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\refint\Entity.dll
 D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\Entity.pdb
 D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\Entity.genruntimeconfig.cache
 D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\ref\Entity.dll
+D:\BackEndC#\TheHieuPRN232\Entity\obj\Debug\net8.0\Entity.sourcelink.json

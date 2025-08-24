@@ -20,6 +20,7 @@ public partial class FunewsManagementContext : DbContext
     }
 
     public virtual DbSet<Category> Categories { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
 
     public virtual DbSet<NewsArticle> NewsArticles { get; set; }
 

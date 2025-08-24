@@ -9,11 +9,22 @@ public static class RegisterServices
         builder.AddControllersWithViews();
         builder.AddHttpClient<HomeController>();
         return builder;
-    }public static WebApplication AddBootraping(this WebApplication app)
+    }
+    
+    public static WebApplication AddBootraping(this WebApplication app)
     {
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Home/Error");
+            app.UseHsts();
+        }
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+        app.UseRouting();
         app.MapControllerRoute(
-            name:"default",
+            name: "default",
             pattern: "{controller=Login}/{action=Index}/{id?}");
+            
         return app;
     }
 }
