@@ -4,11 +4,21 @@
 }
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
     <style>
-        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        nav.navbar, footer.footer { display: none !important; }
-        .container { max-width: none; padding: 0; }
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        nav.navbar,
+        footer.footer {
+            display: none !important;
+        }
+
+        .container {
+            max-width: none;
+            padding: 0;
+        }
     </style>
 }
 <section class="auth-section min-vh-100 d-flex align-items-center justify-content-center py-5">
@@ -18,14 +28,16 @@
                 <div class="card shadow-xl border-0 rounded-4 overflow-hidden">
                     <div class="row g-0">
                         <div class="col-lg-5 d-none d-lg-block">
-                            <div class="auth-bg h-100 d-flex align-items-center justify-content-center text-white position-relative">
+                            <div
+                                class="auth-bg h-100 d-flex align-items-center justify-content-center text-white position-relative">
                                 <div class="text-center position-relative z-3">
                                     <div class="mb-5">
                                         <div class="logo-container mb-4">
                                             <i class="fas fa-newspaper fa-5x mb-3 text-white"></i>
                                         </div>
                                         <h1 class="fw-bold mb-3 display-6">News Management</h1>
-                                        <p class="lead opacity-90 mb-4">Stay informed with the latest news and updates</p>
+                                        <p class="lead opacity-90 mb-4">Stay informed with the latest news and updates
+                                        </p>
                                     </div>
                                     <div class="auth-features">
                                         <div class="feature-item d-flex align-items-center mb-4">
@@ -92,8 +104,8 @@
                                                 <span class="input-group-text bg-light border-end-0">
                                                     <i class="fas fa-envelope text-muted"></i>
                                                 </span>
-                                                <input type="email" class="form-control border-start-0" id="loginEmail" 
-                                                       placeholder="Enter your email address" required>
+                                                <input type="email" class="form-control border-start-0" id="loginEmail"
+                                                    placeholder="Enter your email address" required>
                                             </div>
                                         </div>
 
@@ -105,10 +117,9 @@
                                                 <span class="input-group-text bg-light border-end-0">
                                                     <i class="fas fa-lock text-muted"></i>
                                                 </span>
-                                                <input type="password" class="form-control border-start-0" id="loginPassword" 
-                                                       placeholder="Enter your password" required>
-                                                <button class="btn btn-outline-secondary border-start-0" type="button" 
-                                                        onclick="togglePassword('loginPassword')">
+                                                <input type="password" class="form-control border-start-0"
+                                                    id="loginPassword" placeholder="Enter your password" required>
+                                                <button class="btn btn-outline-secondary border-start-0" type="button">
                                                     <i class="fas fa-eye" id="loginPasswordIcon"></i>
                                                 </button>
                                             </div>
@@ -146,8 +157,8 @@
                                                 <span class="input-group-text bg-light border-end-0">
                                                     <i class="fas fa-user text-muted"></i>
                                                 </span>
-                                                <input type="text" class="form-control border-start-0" id="registerUsername" 
-                                                       placeholder="Choose a username" required>
+                                                <input type="text" class="form-control border-start-0"
+                                                    id="registerUsername" placeholder="Choose a username" required>
                                             </div>
                                         </div>
 
@@ -159,8 +170,8 @@
                                                 <span class="input-group-text bg-light border-end-0">
                                                     <i class="fas fa-envelope text-muted"></i>
                                                 </span>
-                                                <input type="email" class="form-control border-start-0" id="registerEmail" 
-                                                       placeholder="Enter your email address" required>
+                                                <input type="email" class="form-control border-start-0"
+                                                    id="registerEmail" placeholder="Enter your email address" required>
                                             </div>
                                         </div>
 
@@ -172,18 +183,20 @@
                                                 <span class="input-group-text bg-light border-end-0">
                                                     <i class="fas fa-lock text-muted"></i>
                                                 </span>
-                                                <input type="password" class="form-control border-start-0" id="registerPassword" 
-                                                       placeholder="Create a strong password" required>
-                                                <button class="btn btn-outline-secondary border-start-0" type="button" 
-                                                        onclick="togglePassword('registerPassword')">
+                                                <input type="password" class="form-control border-start-0"
+                                                    id="registerPassword" placeholder="Create a strong password"
+                                                    required>
+                                                <button class="btn btn-outline-secondary border-start-0" type="button">
                                                     <i class="fas fa-eye" id="registerPasswordIcon"></i>
                                                 </button>
                                             </div>
                                             <div class="password-strength mt-3">
                                                 <div class="progress" style="height: 6px;">
-                                                    <div class="progress-bar" id="passwordStrengthBar" role="progressbar"></div>
+                                                    <div class="progress-bar" id="passwordStrengthBar"
+                                                        role="progressbar"></div>
                                                 </div>
-                                                <small class="text-muted fw-semibold" id="passwordStrengthText">Password strength</small>
+                                                <small class="text-muted fw-semibold" id="passwordStrengthText">Password
+                                                    strength</small>
                                             </div>
                                         </div>
 
@@ -195,10 +208,10 @@
                                                 <span class="input-group-text bg-light border-end-0">
                                                     <i class="fas fa-lock text-muted"></i>
                                                 </span>
-                                                <input type="password" class="form-control border-start-0" id="registerConfirmPassword" 
-                                                       placeholder="Confirm your password" required>
-                                                <button class="btn btn-outline-secondary border-start-0" type="button" 
-                                                        onclick="togglePassword('registerConfirmPassword')">
+                                                <input type="password" class="form-control border-start-0"
+                                                    id="registerConfirmPassword" placeholder="Confirm your password"
+                                                    required>
+                                                <button class="btn btn-outline-secondary border-start-0" type="button">
                                                     <i class="fas fa-eye" id="registerConfirmPasswordIcon"></i>
                                                 </button>
                                             </div>
@@ -206,9 +219,11 @@
 
                                         <div class="mb-5">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                                <input class="form-check-input" type="checkbox" id="agreeTerms"
+                                                    required>
                                                 <label class="form-check-label text-muted fw-semibold" for="agreeTerms">
-                                                    I agree to the <a href="#" class="text-primary">Terms of Service</a> and 
+                                                    I agree to the <a href="#" class="text-primary">Terms of Service</a>
+                                                    and
                                                     <a href="#" class="text-primary">Privacy Policy</a>
                                                 </label>
                                             </div>
@@ -230,13 +245,4 @@
 
 @section Scripts {
     <script src="~/Js/Login.js" asp-append-version="true"></script>
-    <script>
-        // Debug script loading
-        console.log("Login.js script loaded");
-        if (typeof $ !== 'undefined') {
-            console.log("jQuery is available");
-        } else {
-            console.error("jQuery is NOT available");
-        }
-    </script>
 }
