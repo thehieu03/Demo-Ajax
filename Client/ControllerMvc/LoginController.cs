@@ -8,4 +8,18 @@ public class LoginController : Controller
     {
         return View();
     }
+
+    [HttpPost]
+    public IActionResult Login(string email, string password)
+    {
+        // TODO: Implement login logic here
+        // For now, just return to index
+        return RedirectToAction("Index");
+    }
+
+    [HttpPost("register")]
+    public IActionResult Register(string username, string email, string password, string confirmPassword)
+    {
+        return RedirectToAction("Index");
+    }
 }
