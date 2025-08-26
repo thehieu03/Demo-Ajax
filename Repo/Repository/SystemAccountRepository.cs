@@ -17,4 +17,6 @@ public class SystemAccountRepository   :ISystemAccountRepository
 
     public Task<SystemAccount?> GetAccountByEmailOrPassword(string email, string password) =>
         SystemAccountDao.Login(email, password);
+
+    public Task<SystemAccount?> GetByEmail(string email)=> SystemAccountDao.GetByEmail(email);
 }

@@ -1,4 +1,39 @@
-﻿
-@{
-    Layout="_Layout";
-}
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers;
+@model Client.ControllerMvc.DataResponse;
+<link rel="stylesheet" href="/css/login.css" />
+<h2>Login</h2>
+<form asp-controller="Login" asp-action="Login" method="post">
+    <div>
+        <label for="email">Email</label>
+        <input id="email" asp-for="Login.Email" type="email" />
+        <span id="emailError"></span>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input id="password" asp-for="Login.Password" type="password" />
+        <span id="passwordError"></span>
+    </div>
+    <button type="submit">Login</button>
+</form>
+
+<hr />
+
+<h2>Register</h2>
+<form asp-controller="Login" asp-action="Register" method="post">
+    <div>
+        <label for="AccountName">Account Name</label>
+        <input id="AccountName" asp-for="CreateAccount.AccountName" type="text" />
+    </div>
+    <div>
+        <label for="AccountEmail">Account Email</label>
+        <input id="AccountEmail" asp-for="CreateAccount.AccountEmail" type="email" />
+    </div>
+    <div>
+        <label for="AccountPassword">Account Password</label>
+        <input id="AccountPassword" asp-for="CreateAccount.AccountPassword" type="password" />
+    </div>
+    <button type="submit">Register</button>
+</form>
+<script src="/Js/Login.js" defer>
+
+</script>

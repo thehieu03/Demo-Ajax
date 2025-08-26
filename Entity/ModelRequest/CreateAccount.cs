@@ -9,7 +9,7 @@ public class CreateAccount
     [JsonPropertyName("accountName")]
     public string? AccountName { get; set; }
     [EmailAddress]
-                                  [JsonPropertyName("accountEmail")]
+    [JsonPropertyName("accountEmail")]
     public string? AccountEmail { get; set; }
     [JsonPropertyName("accountPassword")]
     [Required]

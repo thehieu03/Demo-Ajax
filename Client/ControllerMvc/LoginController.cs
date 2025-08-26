@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entity.ModelRequest;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Client.ControllerMvc;
 
@@ -6,20 +7,24 @@ public class LoginController : Controller
 {
     public IActionResult Index()
     {
-        return View();
+        var data = new DataResponse();
+        return View(data);
     }
 
     [HttpPost]
-    public IActionResult Login(string email, string password)
-    {
-        // TODO: Implement login logic here
-        // For now, just return to index
-        return RedirectToAction("Index");
-    }
-
-    [HttpPost("register")]
-    public IActionResult Register(string username, string email, string password, string confirmPassword)
+    public IActionResult Login([FromForm][Bind(Prefix = "Login")] LoginRequest login)
     {
         return RedirectToAction("Index");
     }
+    [HttpPost]
+    public IActionResult Register([FromForm][Bind(Prefix = "CreateAccount")] CreateAccount accountAdd)
+    {
+        return RedirectToAction("Index");
+    }
+    
+}
+public class DataResponse
+{
+    public LoginRequest Login { get; set; } = new LoginRequest();
+    public CreateAccount CreateAccount { get; set; } = new CreateAccount();
 }

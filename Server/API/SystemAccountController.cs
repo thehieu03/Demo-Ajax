@@ -16,11 +16,11 @@ namespace Server.API
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
 
-        public SystemAccountController(ISystemAccountRepository systemAccountRepository, IConfiguration configuration,IMapper mapper)
+        public SystemAccountController(ISystemAccountRepository systemAccountRepository, IConfiguration configuration, IMapper mapper)
         {
             _systemAccountRepository = systemAccountRepository;
             _configuration = configuration;
-            _mapper=mapper;
+            _mapper = mapper;
         }
 
         [HttpPost("login")]
@@ -36,7 +36,7 @@ namespace Server.API
                 }
 
                 var key = new SymmetricSecurityKey(
-                    System.Text.Encoding.UTF8.GetBytes(_configuration["JWT:Key"] 
+                    System.Text.Encoding.UTF8.GetBytes(_configuration["JWT:Key"]
                         ?? throw new Exception("Key not found"))
                 );
                 var signCredential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -68,7 +68,7 @@ namespace Server.API
                         AccountRole = int.Parse(roleAccount),
                         AccountId = -1,
                         AccountName = "Admin",
-                        CheckAdmin = true  
+                        CheckAdmin = true
                     });
                 }
                 var result = await _systemAccountRepository.GetAccountByEmailOrPassword(login.Email, login.Password);
@@ -100,7 +100,7 @@ namespace Server.API
                     AccountRole = result.AccountRole,
                     AccountId = result.AccountId,
                     AccountName = result.AccountName!,
-                    CheckAdmin = result.AccountRole==2? true : false
+                    CheckAdmin = result.AccountRole == 2 ? true : false
                 });
             }
             catch (Exception e)
@@ -108,15 +108,16 @@ namespace Server.API
                 return BadRequest(e.Message);
             }
         }
-
-        public async Task<IActionResult> CreateAccount([FromBody]CreateAccount create)
+        [HttpPost("createAccount")]
+        public async Task<IActionResult> CreateAccount([FromBody] CreateAccount create)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest("Input not found");
             }
-             var account =_mapper.Map<SystemAccount>(create);
-             await _systemAccountRepository.Create(account);
+            var account = _mapper.Map<SystemAccount>(create);
+            account.AccountRole = 1;
+            await _systemAccountRepository.Create(account);
             return Ok("Create account successfully");
         }
         [HttpGet("getAllAccount")]
@@ -124,6 +125,17 @@ namespace Server.API
         {
             var accounts = await _systemAccountRepository.GetAllAsync();
             var response = _mapper.Map<IEnumerable<SystemAccountResponse>>(accounts);
+            return Ok(response);
+        }
+        [HttpGet("getAccountByEmail")]
+        public async Task<ActionResult<SystemAccountResponse>> GetAccountByEmail([FromQuery] string email)
+        {
+            var account = await _systemAccountRepository.GetByEmail(email);
+            if (account == null)
+            {
+                return NotFound("Account not found");
+            }
+            var response = _mapper.Map<SystemAccountResponse>(account);
             return Ok(response);
         }
     }

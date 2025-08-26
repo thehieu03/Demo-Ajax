@@ -50,4 +50,9 @@ public static class SystemAccountDao
         return await Context.SystemAccounts
             .FirstOrDefaultAsync(a => a.AccountEmail == email && a.AccountPassword == password);
     }
+    public static async Task<SystemAccount?> GetByEmail(string email)
+    {
+        var data = await Context.SystemAccounts.FirstOrDefaultAsync(a => a.AccountEmail.Equals(email));
+        return data;
+    }
 }
