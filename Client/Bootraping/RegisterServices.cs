@@ -13,6 +13,7 @@ public static class RegisterServices
         builder.AddHttpClient<AdminCategoryController>();
         builder.AddHttpClient<AdminNewsArticleController>();
         builder.AddHttpClient<AdminTagController>();
+        builder.AddHttpClient<UserAccountController>();
         builder.AddSession(options =>
         {
             options.IdleTimeout = TimeSpan.FromHours(30);

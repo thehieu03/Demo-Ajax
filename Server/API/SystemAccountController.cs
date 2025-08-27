@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity.Data;
 using LoginRequest = Entity.ModelRequest.LoginRequest;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Server.API
 {
@@ -138,5 +139,50 @@ namespace Server.API
             var response = _mapper.Map<SystemAccountResponse>(account);
             return Ok(response);
         }
+        [Authorize]
+        [HttpGet("getAccountById")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult<SystemAccountResponse>> GetAccountById()
+        {
+            var accountId = User.GetAccountId();
+            if (accountId < 0)
+            {
+                return Unauthorized("Invalid account");
+            }
+
+            var account = await _systemAccountRepository.GetById(accountId);
+            if (account == null)
+            {
+                return NotFound("Account not found");
+            }
+
+            var response = _mapper.Map<SystemAccountUserResponse>(account);
+            return Ok(response);
+        }
+        [Authorize]
+        [HttpPut("updateAccount")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult<SystemAccountUserResponse>> UpdateAccount([FromBody] SystemAccountUserResponse model)
+        {
+            var account= await _systemAccountRepository.GetById(model.AccountId);
+            if (account == null)
+            {
+                return BadRequest("Account not found");
+            }
+            if (account.AccountId != User.GetAccountId())
+            {
+                return Unauthorized("You are not authorized to update this account");
+            }
+            account.AccountName = model.AccountName;
+            account.AccountEmail = model.AccountEmail;
+            account.AccountPassword = model.AccountPassword;
+            await _systemAccountRepository.Update(account);
+            var response = _mapper.Map<SystemAccountUserResponse>(account);
+            return Ok(response);
+        }
+
     }
 }

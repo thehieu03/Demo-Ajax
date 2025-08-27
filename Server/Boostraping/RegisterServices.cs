@@ -19,6 +19,27 @@ public static class RegisterServices
         });
         services.AddAutoMapper(typeof(MapProfile).Assembly);
         services.AddCors();
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = "Bearer";
+            options.DefaultChallengeScheme = "Bearer";
+        }).AddJwtBearer("Bearer", options =>
+        {
+            options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = configuration["JWT:Issuer"],
+                ValidAudience = configuration["JWT:Audience"],
+                IssuerSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(
+                    System.Text.Encoding.UTF8.GetBytes(configuration["JWT:Key"]
+                        ?? throw new Exception("Key not found"))
+                ),
+                ClockSkew = TimeSpan.Zero
+            };
+        });
         return services;
     }
 

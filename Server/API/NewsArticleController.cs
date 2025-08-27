@@ -22,7 +22,8 @@ namespace Server.API
             {
                 return NotFound();
             }
-            return Ok(data);
+            var orderedData = data.OrderByDescending(x => x.NewsArticleId);
+            return Ok(orderedData);
         }
     }
 }

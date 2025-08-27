@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using Entity.ModelResponse;
-using Entity.Models;
-
-namespace Server.AutoMap;
+﻿namespace Server.AutoMap;
 
 public class MapProfile : Profile
 {
@@ -13,5 +9,6 @@ public class MapProfile : Profile
         CreateMap<SystemAccount, SystemAccountResponse>().ReverseMap();
         CreateMap<Category, CategoryAdd>().ReverseMap();
         CreateMap<Category, CategoryResponse>().ReverseMap();
+        CreateMap<SystemAccount, SystemAccountUserResponse>().ReverseMap();
     }
 }
