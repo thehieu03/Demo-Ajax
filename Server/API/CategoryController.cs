@@ -1,7 +1,3 @@
-using Entity.ModelResponse;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
 namespace Server.API
 {
     [Route("api/[controller]")]
@@ -9,11 +5,16 @@ namespace Server.API
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryRepository _categoryRepository;
-        public CategoryController(ICategoryRepository categoryRepository)
+        private readonly IMapper _mapper;
+
+        public CategoryController(ICategoryRepository categoryRepository,IMapper mapper)
         {
-              _categoryRepository = categoryRepository;
+            _categoryRepository = categoryRepository;
+            _mapper = mapper; 
         }
         [HttpGet]
+        [Produces("application/json")]
+        [EnableQuery]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<IEnumerable<CategoryResponse>>> Get()
@@ -24,6 +25,48 @@ namespace Server.API
                 return NotFound();
             }
             return Ok(data);
+        }
+        [HttpGet("{id}")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(CategoryResponse), StatusCodes.Status200OK)]
+        public async Task<ActionResult<CategoryResponse>> Get(short id)
+        {
+            var data = await _categoryRepository.GetById(id);
+            var categoroyResponse=_mapper.Map<CategoryResponse>(data);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            return Ok(categoroyResponse);
+        }
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<CategoryResponse>> Post([FromBody] CategoryAdd category)
+        {
+            var newCategory = _mapper.Map<Category>(category);
+            await _categoryRepository.Create(newCategory);
+            var data = _mapper.Map<CategoryResponse>(newCategory);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            return Ok(data);
+        }
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Delete(short id)
+        {
+            var existingCategory = await _categoryRepository.GetById(id);
+            if (existingCategory == null)
+            {
+                return NotFound();
+            }
+            await _categoryRepository.Delete(id);
+            return Ok();
         }
     }
 }

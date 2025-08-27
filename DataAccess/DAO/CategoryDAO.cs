@@ -13,7 +13,10 @@ public static class CategoryDao
         {
             CategoryId = c.CategoryId,
             CategoryName = c.CategoryName ?? string.Empty,
-            CategoryDesciption = c.CategoryDesciption ?? string.Empty
+            CategoryDesciption = c.CategoryDesciption ?? string.Empty,
+            ParentCategoryId= c.ParentCategoryId,
+            IsActive = c.IsActive,
+            ParentCategoryName = c.ParentCategory != null ? c.ParentCategory.CategoryName : null
         }).ToListAsync();
 
     public static async Task<Category?> GetCategoryById(short id) =>
@@ -39,5 +42,6 @@ public static class CategoryDao
             Context.Categories.Remove(category);
             await Context.SaveChangesAsync();
         }
+
     }
 }

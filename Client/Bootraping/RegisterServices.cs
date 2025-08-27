@@ -7,15 +7,19 @@ public static class RegisterServices
     public static IServiceCollection AddBootraping(this IServiceCollection builder)
     {
         builder.AddControllersWithViews();
-        builder.AddHttpClient<LoginController>();
         builder.AddHttpClient<HomeController>();
+        builder.AddHttpClient<LoginController>();
+        builder.AddHttpClient<AdminAccountController>();
+        builder.AddHttpClient<AdminCategoryController>();
+        builder.AddHttpClient<AdminNewsArticleController>();
+        builder.AddHttpClient<AdminTagController>();
         builder.AddSession(options =>
         {
-            options.IdleTimeout = TimeSpan.FromHours(3);
+            options.IdleTimeout = TimeSpan.FromHours(30);
             options.Cookie.HttpOnly = true;
             options.Cookie.IsEssential = true;
         });
-        builder.AddDistributedMemoryCache();
+        builder.AddHttpContextAccessor();
         return builder;
     }
     
@@ -26,13 +30,13 @@ public static class RegisterServices
             app.UseExceptionHandler("/Home/Error");
             app.UseHsts();
         }
+        app.UseSession();
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
-        app.UseSession();
         app.MapControllerRoute(
             name: "default",
-            pattern: "{controller=Login}/{action=Index}/{id?}");
+            pattern: "{controller=Home}/{action=Index}/{id?}");
             
         return app;
     }

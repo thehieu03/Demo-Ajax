@@ -51,7 +51,6 @@
 </section>
 <section class="articles-section py-5">
     <div class="container">
-        <!-- Section Header -->
         <div class="row mb-5">
             <div class="col-12">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
@@ -65,7 +64,7 @@
                         </button>
                         @if (Model?.Categories != null)
                         {
-                            @foreach (var category in Model.Categories.Take(3))
+                            @foreach (var category in Model.Categories.Take(5))
                             {
                                 <button type="button" class="btn btn-outline-primary" data-filter="@category.CategoryId">
                                     <i class="fas fa-tag me-1"></i>@category.CategoryName
@@ -123,8 +122,6 @@
                 </div>
             }
         </div>
-
-        <!-- Pagination -->
         @if (Model?.NewsArticles != null && Model.NewsArticles.Count() > 6)
         {
             <div class="row mt-5">
@@ -151,8 +148,6 @@
         }
     </div>
 </section>
-
-<!-- Footer -->
 <footer class="bg-dark text-white py-4 mt-5">
     <div class="container">
         <div class="row">
@@ -165,8 +160,6 @@
         </div>
     </div>
 </footer>
-
-<!-- Custom CSS for enhanced styling -->
 <style>
     .bg-gradient-primary {
         background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
@@ -235,8 +228,6 @@
         z-index: 2;
     }
 </style>
-
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 @functions {

@@ -1,7 +1,3 @@
-using AutoMapper;
-using Entity.ModelResponse;
-using Microsoft.AspNetCore.OData.Query;
-
 namespace Server.API
 {
     [Route("api/[controller]")]
@@ -12,7 +8,7 @@ namespace Server.API
 
         public NewsArticleController(INewsArticleRepository repository)
         {
-                  _repository= repository;
+            _repository = repository;
         }
 
         [EnableQuery]
@@ -21,12 +17,12 @@ namespace Server.API
         [HttpGet]
         public async Task<ActionResult<IEnumerable<NewsArticleResponse>>> Get()
         {
-               var data=await _repository.GetAllAsync();
-               if(!data.Any())
-               {
-                   return NotFound();
-               }
-               return Ok(data);
+            var data = await _repository.GetAllAsync();
+            if (!data.Any())
+            {
+                return NotFound();
+            }
+            return Ok(data);
         }
     }
 }

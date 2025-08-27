@@ -1,9 +1,4 @@
-﻿using Entity.ModelRequest;
-using Entity.ModelResponse;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-
-namespace Client.ControllerMvc;
+﻿namespace Client.ControllerMvc;
 
 public class LoginController : Controller
 {
@@ -11,10 +6,10 @@ public class LoginController : Controller
     private readonly IConfiguration _configuration;
     private static string? url;
 
-    public LoginController(HttpClient client,IConfiguration configuration)
+    public LoginController(HttpClient client, IConfiguration configuration)
     {
-        _client=client;
-        _configuration=configuration;
+        _client = client;
+        _configuration = configuration;
         url = _configuration.GetValue<string>("URL") ?? throw new Exception("URL configuration is missing");
     }
     public IActionResult Index()
@@ -37,14 +32,21 @@ public class LoginController : Controller
             ModelState.AddModelError("", "Đăng nhập thất bại");
             return View("Index", loginRequest);
         }
+
         var result = await response.Content.ReadFromJsonAsync<TokenResponse>();
+
+        if (result == null)
+        {
+            ModelState.AddModelError("", "Phản hồi không hợp lệ từ server");
+            return View("Index", loginRequest);
+        }
+
         HttpContext.Session.SetString("Token", result.Token);
-        HttpContext.Session.SetString("hieu", "hieu");
         HttpContext.Session.SetString("Username", result.AccountName);
 
         if (result.AccountRole == 2)
         {
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("Index", "AdminCategory");
         }
         else
         {

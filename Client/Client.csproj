@@ -1,17 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Entity\Entity.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Entity\Entity.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\css\Login.css" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="wwwroot\css\Login.css" />
+		<Using Include="System.Threading.Tasks"/>
+		<Using Include="Microsoft.AspNetCore.Mvc"/>
+		<Using Include="Entity.ModelResponse"/>
+		<Using Include="Entity.ModelRequest"/>
+	</ItemGroup>
 
 </Project>

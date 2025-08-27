@@ -1,7 +1,94 @@
 ﻿@{
-    ViewData["Title"] = "Admin";
+    ViewData["Title"] = "Admin Dashboard";
     Layout = "_LayoutAdmin";
 }
-<h1>
-    This Admin Page
-</h1>
+
+<div class="container mt-5 pt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="mb-4">
+                <i class="fas fa-tachometer-alt me-2"></i>Admin Dashboard
+            </h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card bg-primary text-white shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h5 class="card-title">Categories</h5>
+                                    <h3 class="mb-0">12</h3>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-list fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card bg-success text-white shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h5 class="card-title">Articles</h5>
+                                    <h3 class="mb-0">45</h3>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-newspaper fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card bg-info text-white shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h5 class="card-title">Accounts</h5>
+                                    <h3 class="mb-0">8</h3>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-users fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card bg-warning text-white shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h5 class="card-title">Tags</h5>
+                                    <h3 class="mb-0">25</h3>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-tags fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Quick Actions</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-outline-primary btn-lg w-100 mb-3">
+                                <i class="fas fa-plus me-2"></i>Add New Article
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-outline-success btn-lg w-100 mb-3">
+                                <i class="fas fa-user-plus me-2"></i>Add New Account
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
