@@ -1,30 +1,55 @@
 ﻿using Entity.ModelRequest;
+using Entity.ModelResponse;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Client.ControllerMvc;
 
 public class LoginController : Controller
 {
+    private readonly HttpClient _client;
+    private readonly IConfiguration _configuration;
+    private static string? url;
+
+    public LoginController(HttpClient client,IConfiguration configuration)
+    {
+        _client=client;
+        _configuration=configuration;
+        url = _configuration.GetValue<string>("URL") ?? throw new Exception("URL configuration is missing");
+    }
     public IActionResult Index()
     {
-        var data = new DataResponse();
-        return View(data);
+        return View();
     }
 
     [HttpPost]
-    public IActionResult Login([FromForm][Bind(Prefix = "Login")] LoginRequest login)
+    public async Task<IActionResult> Login(LoginRequest loginRequest)
     {
-        return RedirectToAction("Index");
+        if (!ModelState.IsValid)
+        {
+            return View("Index", loginRequest);
+        }
+
+        var response = await _client.PostAsJsonAsync(url + "/account/login", loginRequest);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            ModelState.AddModelError("", "Đăng nhập thất bại");
+            return View("Index", loginRequest);
+        }
+        var result = await response.Content.ReadFromJsonAsync<TokenResponse>();
+        HttpContext.Session.SetString("Token", result.Token);
+        HttpContext.Session.SetString("hieu", "hieu");
+        HttpContext.Session.SetString("Username", result.AccountName);
+
+        if (result.AccountRole == 2)
+        {
+            return RedirectToAction("Index", "Admin");
+        }
+        else
+        {
+            return RedirectToAction("Index", "Home");
+        }
     }
-    [HttpPost]
-    public IActionResult Register([FromForm][Bind(Prefix = "CreateAccount")] CreateAccount accountAdd)
-    {
-        return RedirectToAction("Index");
-    }
-    
-}
-public class DataResponse
-{
-    public LoginRequest Login { get; set; } = new LoginRequest();
-    public CreateAccount CreateAccount { get; set; } = new CreateAccount();
+
 }

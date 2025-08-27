@@ -11,6 +11,7 @@ D:\BackEndC#\TheHieuPRN232\Server\bin\Debug\net8.0\AutoMapper.Extensions.Microso
 D:\BackEndC#\TheHieuPRN232\Server\bin\Debug\net8.0\Azure.Core.dll
 D:\BackEndC#\TheHieuPRN232\Server\bin\Debug\net8.0\Azure.Identity.dll
 D:\BackEndC#\TheHieuPRN232\Server\bin\Debug\net8.0\Humanizer.dll
+D:\BackEndC#\TheHieuPRN232\Server\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\BackEndC#\TheHieuPRN232\Server\bin\Debug\net8.0\Microsoft.AspNetCore.OData.dll
 D:\BackEndC#\TheHieuPRN232\Server\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 D:\BackEndC#\TheHieuPRN232\Server\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -253,6 +254,7 @@ D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\Server.AssemblyInfo.cs
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\Server.csproj.CoreCompileInputs.cache
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\Server.MvcApplicationPartsAssemblyInfo.cs
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\Server.MvcApplicationPartsAssemblyInfo.cache
+D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\Server.sourcelink.json
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\rjimswa.dswa.cache.json
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
@@ -267,6 +269,4 @@ D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\refint\Server.dll
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\Server.pdb
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\Server.genruntimeconfig.cache
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\ref\Server.dll
-D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\Server.sourcelink.json
-D:\BackEndC#\TheHieuPRN232\Server\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -7,7 +7,7 @@ public class HomeController : Controller
 {
     private readonly HttpClient _client;
     private readonly IConfiguration _configuration;
-    private static string url;
+    private static string? url;
 
     public HomeController(HttpClient client,IConfiguration configuration)
     {

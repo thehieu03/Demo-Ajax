@@ -3,76 +3,52 @@
   "WorkspaceRootPath": "D:\\BackEndC#\\TheHieuPRN232\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\controllermvc\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\controllermvc\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\views\\admintag\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\views\\admintag\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\controllermvc\\admintagcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\controllermvc\\admintagcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\views\\adminnewsarticle\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\views\\adminnewsarticle\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\views\\admincategory\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\views\\admincategory\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\views\\adminaccount\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\views\\adminaccount\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\controllermvc\\adminaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\controllermvc\\adminaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\controllermvc\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\controllermvc\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\bootraping\\registerservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\bootraping\\registerservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|d:\\backendc#\\thehieuprn232\\client\\controllermvc\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDED24D7-3B47-4BF6-9841-A0A465AA11AA}|Client\\Client.csproj|solutionrelative:client\\controllermvc\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{35C64F04-EF21-46D2-9B3E-980A21EA06FA}|Server\\Server.csproj|d:\\backendc#\\thehieuprn232\\server\\api\\systemaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35C64F04-EF21-46D2-9B3E-980A21EA06FA}|Server\\Server.csproj|solutionrelative:server\\api\\systemaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35C64F04-EF21-46D2-9B3E-980A21EA06FA}|Server\\Server.csproj|d:\\backendc#\\thehieuprn232\\server\\api\\newsarticlecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35C64F04-EF21-46D2-9B3E-980A21EA06FA}|Server\\Server.csproj|solutionrelative:server\\api\\newsarticlecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35C64F04-EF21-46D2-9B3E-980A21EA06FA}|Server\\Server.csproj|d:\\backendc#\\thehieuprn232\\server\\api\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35C64F04-EF21-46D2-9B3E-980A21EA06FA}|Server\\Server.csproj|solutionrelative:server\\api\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D10E01A-D946-4689-BB22-F1DAB4AE6E2A}|Repo\\Repo.csproj|d:\\backendc#\\thehieuprn232\\repo\\repository\\systemaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D10E01A-D946-4689-BB22-F1DAB4AE6E2A}|Repo\\Repo.csproj|solutionrelative:repo\\repository\\systemaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D10E01A-D946-4689-BB22-F1DAB4AE6E2A}|Repo\\Repo.csproj|d:\\backendc#\\thehieuprn232\\repo\\repository\\isystemaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D10E01A-D946-4689-BB22-F1DAB4AE6E2A}|Repo\\Repo.csproj|solutionrelative:repo\\repository\\isystemaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EF9908D-514B-4B9E-B075-123479CFB803}|DataAccess\\DataAccess.csproj|d:\\backendc#\\thehieuprn232\\dataaccess\\dao\\systemaccountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EF9908D-514B-4B9E-B075-123479CFB803}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\dao\\systemaccountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35C64F04-EF21-46D2-9B3E-980A21EA06FA}|Server\\Server.csproj|d:\\backendc#\\thehieuprn232\\server\\automap\\mapprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35C64F04-EF21-46D2-9B3E-980A21EA06FA}|Server\\Server.csproj|solutionrelative:server\\automap\\mapprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35C64F04-EF21-46D2-9B3E-980A21EA06FA}|Server\\Server.csproj|d:\\backendc#\\thehieuprn232\\server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{35C64F04-EF21-46D2-9B3E-980A21EA06FA}|Server\\Server.csproj|solutionrelative:server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D89B7BC5-E087-4A52-8185-A663D1F4D93A}|Entity\\Entity.csproj|d:\\backendc#\\thehieuprn232\\entity\\modelrequest\\createaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D89B7BC5-E087-4A52-8185-A663D1F4D93A}|Entity\\Entity.csproj|solutionrelative:entity\\modelrequest\\createaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\BackEndC#\\TheHieuPRN232\\Entity\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entity\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\BackEndC#\\TheHieuPRN232\\DataAccess\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DataAccess\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\BackEndC#\\TheHieuPRN232\\Repo\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Repo\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,8 +58,126 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 209,
+          "SelectedChildIndex": 8,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Client\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Client\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-27T03:05:44.668Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\AdminTag\\Index.cshtml",
+              "RelativeDocumentMoniker": "Client\\Views\\AdminTag\\Index.cshtml",
+              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\AdminTag\\Index.cshtml",
+              "RelativeToolTip": "Client\\Views\\AdminTag\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-27T03:28:56.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminTagController.cs",
+              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\ControllerMvc\\AdminTagController.cs",
+              "RelativeDocumentMoniker": "Client\\ControllerMvc\\AdminTagController.cs",
+              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\ControllerMvc\\AdminTagController.cs",
+              "RelativeToolTip": "Client\\ControllerMvc\\AdminTagController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T03:28:40.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\AdminNewsArticle\\Index.cshtml",
+              "RelativeDocumentMoniker": "Client\\Views\\AdminNewsArticle\\Index.cshtml",
+              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\AdminNewsArticle\\Index.cshtml",
+              "RelativeToolTip": "Client\\Views\\AdminNewsArticle\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-27T03:28:09.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\AdminCategory\\Index.cshtml",
+              "RelativeDocumentMoniker": "Client\\Views\\AdminCategory\\Index.cshtml",
+              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\AdminCategory\\Index.cshtml",
+              "RelativeToolTip": "Client\\Views\\AdminCategory\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-27T03:28:07.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Client\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Client\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-27T03:27:50.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\AdminAccount\\Index.cshtml",
+              "RelativeDocumentMoniker": "Client\\Views\\AdminAccount\\Index.cshtml",
+              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\AdminAccount\\Index.cshtml",
+              "RelativeToolTip": "Client\\Views\\AdminAccount\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-27T03:27:47.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AdminAccountController.cs",
+              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\ControllerMvc\\AdminAccountController.cs",
+              "RelativeDocumentMoniker": "Client\\ControllerMvc\\AdminAccountController.cs",
+              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\ControllerMvc\\AdminAccountController.cs",
+              "RelativeToolTip": "Client\\ControllerMvc\\AdminAccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T03:27:27.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "Client\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "Client\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAiwBgAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-27T03:20:44.974Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -902,225 +996,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RegisterServices.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Bootraping\\RegisterServices.cs",
-              "RelativeDocumentMoniker": "Client\\Bootraping\\RegisterServices.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Bootraping\\RegisterServices.cs",
-              "RelativeToolTip": "Client\\Bootraping\\RegisterServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T10:28:01.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Program.cs",
-              "RelativeDocumentMoniker": "Client\\Program.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Program.cs",
-              "RelativeToolTip": "Client\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T10:27:56.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Client\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Client\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAABkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-26T10:25:16.476Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\ControllerMvc\\HomeController.cs",
-              "RelativeDocumentMoniker": "Client\\ControllerMvc\\HomeController.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\ControllerMvc\\HomeController.cs",
-              "RelativeToolTip": "Client\\ControllerMvc\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T09:51:03.352Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\Login\\Index.cshtml",
-              "RelativeDocumentMoniker": "Client\\Views\\Login\\Index.cshtml",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Views\\Login\\Index.cshtml",
-              "RelativeToolTip": "Client\\Views\\Login\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-26T09:39:21.229Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\ControllerMvc\\LoginController.cs",
-              "RelativeDocumentMoniker": "Client\\ControllerMvc\\LoginController.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\ControllerMvc\\LoginController.cs",
-              "RelativeToolTip": "Client\\ControllerMvc\\LoginController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAADwvxIAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T09:32:31.919Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "NewsArticleController.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Server\\API\\NewsArticleController.cs",
-              "RelativeDocumentMoniker": "Server\\API\\NewsArticleController.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Server\\API\\NewsArticleController.cs",
-              "RelativeToolTip": "Server\\API\\NewsArticleController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T09:31:43.188Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Server\\API\\CategoryController.cs",
-              "RelativeDocumentMoniker": "Server\\API\\CategoryController.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Server\\API\\CategoryController.cs",
-              "RelativeToolTip": "Server\\API\\CategoryController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T09:31:38.279Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SystemAccountRepository.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Repo\\Repository\\SystemAccountRepository.cs",
-              "RelativeDocumentMoniker": "Repo\\Repository\\SystemAccountRepository.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Repo\\Repository\\SystemAccountRepository.cs",
-              "RelativeToolTip": "Repo\\Repository\\SystemAccountRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T05:46:25.597Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ISystemAccountRepository.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Repo\\Repository\\ISystemAccountRepository.cs",
-              "RelativeDocumentMoniker": "Repo\\Repository\\ISystemAccountRepository.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Repo\\Repository\\ISystemAccountRepository.cs",
-              "RelativeToolTip": "Repo\\Repository\\ISystemAccountRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T05:46:12.964Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "SystemAccountController.cs",
               "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Server\\API\\SystemAccountController.cs",
               "RelativeDocumentMoniker": "Server\\API\\SystemAccountController.cs",
               "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Server\\API\\SystemAccountController.cs",
               "RelativeToolTip": "Server\\API\\SystemAccountController.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAADwv2wAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T03:59:21.446Z",
+              "WhenOpened": "2025-08-27T03:10:45.821Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "MapProfile.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Server\\AutoMap\\MapProfile.cs",
-              "RelativeDocumentMoniker": "Server\\AutoMap\\MapProfile.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Server\\AutoMap\\MapProfile.cs",
-              "RelativeToolTip": "Server\\AutoMap\\MapProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABPAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "RegisterServices.cs",
+              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Bootraping\\RegisterServices.cs",
+              "RelativeDocumentMoniker": "Client\\Bootraping\\RegisterServices.cs",
+              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\Bootraping\\RegisterServices.cs",
+              "RelativeToolTip": "Client\\Bootraping\\RegisterServices.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABUAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T05:59:48.133Z"
+              "WhenOpened": "2025-08-27T03:10:17.434Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SystemAccountDAO.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\DataAccess\\DAO\\SystemAccountDAO.cs",
-              "RelativeDocumentMoniker": "DataAccess\\DAO\\SystemAccountDAO.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\DataAccess\\DAO\\SystemAccountDAO.cs",
-              "RelativeToolTip": "DataAccess\\DAO\\SystemAccountDAO.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAADcAAAARAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Client\\ControllerMvc\\LoginController.cs",
+              "RelativeDocumentMoniker": "Client\\ControllerMvc\\LoginController.cs",
+              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Client\\ControllerMvc\\LoginController.cs",
+              "RelativeToolTip": "Client\\ControllerMvc\\LoginController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAEwCoAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T04:18:08.359Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "CreateAccount.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Entity\\ModelRequest\\CreateAccount.cs",
-              "RelativeDocumentMoniker": "Entity\\ModelRequest\\CreateAccount.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Entity\\ModelRequest\\CreateAccount.cs",
-              "RelativeToolTip": "Entity\\ModelRequest\\CreateAccount.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T03:59:41.095Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Server\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Server\\Properties\\launchSettings.json",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Server\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Server\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-26T04:01:21.117Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Entity\\Class1.cs",
-              "RelativeDocumentMoniker": "Entity\\Class1.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Entity\\Class1.cs",
-              "RelativeToolTip": "Entity\\Class1.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T09:45:37.623Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\DataAccess\\Class1.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Class1.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\DataAccess\\Class1.cs",
-              "RelativeToolTip": "DataAccess\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T09:45:22.97Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\BackEndC#\\TheHieuPRN232\\Repo\\Class1.cs",
-              "RelativeDocumentMoniker": "Repo\\Class1.cs",
-              "ToolTip": "D:\\BackEndC#\\TheHieuPRN232\\Repo\\Class1.cs",
-              "RelativeToolTip": "Repo\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T09:45:05.066Z"
+              "WhenOpened": "2025-08-27T03:06:02.725Z",
+              "EditorCaption": ""
             }
           ]
         },

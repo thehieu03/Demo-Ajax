@@ -10,9 +10,9 @@ D:\BackEndC#\TheHieuPRN232\Repo\obj\Debug\net8.0\Repo.GeneratedMSBuildEditorConf
 D:\BackEndC#\TheHieuPRN232\Repo\obj\Debug\net8.0\Repo.AssemblyInfoInputs.cache
 D:\BackEndC#\TheHieuPRN232\Repo\obj\Debug\net8.0\Repo.AssemblyInfo.cs
 D:\BackEndC#\TheHieuPRN232\Repo\obj\Debug\net8.0\Repo.csproj.CoreCompileInputs.cache
+D:\BackEndC#\TheHieuPRN232\Repo\obj\Debug\net8.0\Repo.sourcelink.json
 D:\BackEndC#\TheHieuPRN232\Repo\obj\Debug\net8.0\Repo.csproj.Up2Date
 D:\BackEndC#\TheHieuPRN232\Repo\obj\Debug\net8.0\Repo.dll
 D:\BackEndC#\TheHieuPRN232\Repo\obj\Debug\net8.0\refint\Repo.dll
 D:\BackEndC#\TheHieuPRN232\Repo\obj\Debug\net8.0\Repo.pdb
 D:\BackEndC#\TheHieuPRN232\Repo\obj\Debug\net8.0\ref\Repo.dll
-D:\BackEndC#\TheHieuPRN232\Repo\obj\Debug\net8.0\Repo.sourcelink.json
