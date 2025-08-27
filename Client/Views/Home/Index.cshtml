@@ -36,13 +36,15 @@
             </div>
             <div class="col-md-3 col-6">
                 <div class="text-center p-4 bg-white rounded-3 shadow-sm">
-                    <div class="text-primary fs-1 fw-bold mb-2">@(Model?.NewsArticles?.Select(a => a.AccountName).Distinct().Count() ?? 0)</div>
+                    <div class="text-primary fs-1 fw-bold mb-2">@(Model?.NewsArticles?.Select(a =>
+                                                a.AccountName).Distinct().Count() ?? 0)</div>
                     <div class="text-muted fw-semibold text-uppercase small">Authors</div>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="text-center p-4 bg-white rounded-3 shadow-sm">
-                    <div class="text-primary fs-1 fw-bold mb-2">@(Model?.NewsArticles?.Count(a => a.NewsStatus == true) ?? 0)</div>
+                    <div class="text-primary fs-1 fw-bold mb-2">@(Model?.NewsArticles?.Count(a => a.NewsStatus == true)
+                                                ?? 0)</div>
                     <div class="text-muted fw-semibold text-uppercase small">Active Articles</div>
                 </div>
             </div>
@@ -53,7 +55,8 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-12">
-                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                <div
+                    class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
                     <h2 class="section-title fw-bold text-dark mb-3 mb-md-0">
                         <i class="fas fa-newspaper me-2 text-primary"></i>
                         Latest Articles
@@ -78,7 +81,7 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             @if (Model?.NewsArticles != null && Model.NewsArticles.Any())
             {
-                @foreach (var article in Model.NewsArticles)
+                @foreach (var article in Model.NewsArticles.Take(6))
                 {
                     <div class="col" data-category="@article.CategoryId">
                         <div class="card h-100 shadow-sm border-0 rounded-3 article-card">
@@ -90,16 +93,19 @@
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title fw-bold text-dark mb-3">@article.NewsTitle</h5>
                                 <p class="card-text text-muted flex-grow-1">
-                                    @(article.Headline?.Length > 100 ? article.Headline.Substring(0, 100) + "..." : article.Headline)
+                                    @(article.Headline?.Length > 100 ? article.Headline.Substring(0, 100) + "..." :
+                                                                article.Headline)
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <div class="d-flex align-items-center">
-                                        <div class="@GetCategoryColor(article.CategoryName) text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
+                                        <div class="@GetCategoryColor(article.CategoryName) text-white rounded-circle d-flex align-items-center justify-content-center me-2"
+                                            style="width: 32px; height: 32px;">
                                             <small class="fw-bold">@GetInitials(article.AccountName)</small>
                                         </div>
                                         <div>
                                             <div class="fw-semibold small">@(article.AccountName ?? "Anonymous")</div>
-                                            <div class="text-muted small">@(article.NewsStatus == true ? "Active" : "Inactive")</div>
+                                            <div class="text-muted small">@(article.NewsStatus == true ? "Active" : "Inactive")
+                                            </div>
                                         </div>
                                     </div>
                                     <a href="#" class="btn @GetCategoryColor(article.CategoryName) btn-sm">
@@ -160,38 +166,39 @@
         </div>
     </div>
 </footer>
+<script src="/Js/Home.js"></script>
 <style>
     .bg-gradient-primary {
         background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
     }
-    
+
     .article-card {
         transition: all 0.3s ease;
     }
-    
+
     .article-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
     }
-    
+
     .btn-group .btn {
         border-radius: 20px;
         margin: 0 2px;
         padding: 8px 16px;
         font-weight: 500;
     }
-    
+
     .btn-group .btn.active {
         background-color: #0d6efd;
         border-color: #0d6efd;
         color: white;
     }
-    
+
     .section-title {
         position: relative;
         padding-bottom: 10px;
     }
-    
+
     .section-title::after {
         content: '';
         position: absolute;
@@ -202,16 +209,16 @@
         background: linear-gradient(90deg, #0d6efd, #0dcaf0);
         border-radius: 2px;
     }
-    
+
     .navbar-brand {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    
+
     .hero-section {
         background-attachment: fixed;
         position: relative;
     }
-    
+
     .hero-section::before {
         content: '';
         position: absolute;
@@ -222,7 +229,7 @@
         background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         pointer-events: none;
     }
-    
+
     .hero-section .container {
         position: relative;
         z-index: 2;
@@ -236,7 +243,7 @@
         return categoryName?.ToLower() switch
         {
             "technology" => "bg-primary",
-            "health" or "healthcare" => "bg-success", 
+            "health" or "healthcare" => "bg-success",
             "business" => "bg-secondary",
             "education" => "bg-warning",
             "environment" => "bg-info",
@@ -244,12 +251,12 @@
             _ => "bg-primary"
         };
     }
-    
+
     private string GetInitials(string? name)
     {
         if (string.IsNullOrEmpty(name))
             return "AN";
-            
+
         var words = name.Split(' ', StringSplitOptions.RemoveEmptyEntries);
         if (words.Length >= 2)
             return $"{words[0][0]}{words[1][0]}".ToUpper();

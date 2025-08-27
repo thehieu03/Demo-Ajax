@@ -9,17 +9,17 @@ public class HomeController : Controller
     private readonly IConfiguration _configuration;
     private static string? url;
 
-    public HomeController(HttpClient client,IConfiguration configuration)
+    public HomeController(HttpClient client, IConfiguration configuration)
     {
-          _client = client;
-          _configuration = configuration;
-          url = _configuration.GetValue<string>("URL")??throw new Exception("URL configuration is missing");
+        _client = client;
+        _configuration = configuration;
+        url = _configuration.GetValue<string>("URL") ?? throw new Exception("URL configuration is missing");
     }
     public async Task<IActionResult> Index()
     {
-        var newsArticlesResponse = await _client.GetAsync(url+"/NewsArticle");
-        var categoriesResponse = await _client.GetAsync(url+"/Category");
-        if(categoriesResponse.IsSuccessStatusCode&& newsArticlesResponse.IsSuccessStatusCode)
+        var newsArticlesResponse = await _client.GetAsync(url + "/NewsArticle");
+        var categoriesResponse = await _client.GetAsync(url + "/Category");
+        if (categoriesResponse.IsSuccessStatusCode && newsArticlesResponse.IsSuccessStatusCode)
         {
             var categories = await categoriesResponse.Content.ReadFromJsonAsync<List<CategoryResponse>>();
             var newsArticles = await newsArticlesResponse.Content.ReadFromJsonAsync<List<NewsArticleResponse>>();

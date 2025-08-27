@@ -1,3 +1,0 @@
-wwwroot\css\Home.css
-wwwroot\css\Login.css
-wwwroot\Js\Login.js
