@@ -46,7 +46,7 @@ namespace Client.ControllerMvc
             _client.DefaultRequestHeaders.Authorization =
                 new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
             var response = await _client.PutAsJsonAsync(url + "/account/updateAccount", model);
-            // riset usernaem in session
+
             if (!string.IsNullOrEmpty(model.AccountName))
             {
                 HttpContext.Session.SetString("Username", model.AccountName);

@@ -7,10 +7,10 @@ namespace DataAccess.DAO;
 
 public static class NewsArticleDao
 {
-    private static readonly FunewsManagementContext Context = FunewsManagementContext.Instance;
-
-    public static async Task<IEnumerable<NewsArticleResponse>> GetAll() =>
-        await Context.NewsArticles
+    public static async Task<IEnumerable<NewsArticleResponse>> GetAll()
+    {
+        using var context = new FunewsManagementContext();
+        return await context.NewsArticles
             .Include(c => c.CreatedBy)
             .Include(c => c.Category)
             .Select(a => new NewsArticleResponse
@@ -26,19 +26,26 @@ public static class NewsArticleDao
                 AccountName = a.CreatedBy != null ? a.CreatedBy.AccountName : string.Empty
             })
             .ToListAsync();
+    }
 
-    public static async Task<NewsArticle?> GetById(string id) =>
-        await Context.NewsArticles.FindAsync(id);
+    public static async Task<NewsArticle?> GetById(string id)
+    {
+        using var context = new FunewsManagementContext();
+        return await context.NewsArticles.FindAsync(id);
+    }
 
     public static async Task Create(NewsArticle newsArticle)
     {
-        Context.NewsArticles.Add(newsArticle);
-        await Context.SaveChangesAsync();
+        using var context = new FunewsManagementContext();
+        context.NewsArticles.Add(newsArticle);
+        await context.SaveChangesAsync();
     }
 
     public static async Task<NewsArticle> CreateNewsArticle(NewsArticle newsArticle)
     {
-        var allIds = await Context.NewsArticles
+        using var context = new FunewsManagementContext();
+        
+        var allIds = await context.NewsArticles
             .AsNoTracking()
             .Select(x => x.NewsArticleId)
             .ToListAsync();
@@ -56,20 +63,22 @@ public static class NewsArticleDao
             newsArticle.CreatedDate = DateTime.UtcNow;
         }
 
-        Context.NewsArticles.Add(newsArticle);
-        await Context.SaveChangesAsync();
+        context.NewsArticles.Add(newsArticle);
+        await context.SaveChangesAsync();
         return newsArticle;
     }
 
     public static async Task Update(NewsArticle newsArticle)
     {
-        Context.NewsArticles.Update(newsArticle);
-        await Context.SaveChangesAsync();
+        using var context = new FunewsManagementContext();
+        context.NewsArticles.Update(newsArticle);
+        await context.SaveChangesAsync();
     }
 
     public static async Task Delete(string id)
     {
-        var article = await Context.NewsArticles
+        using var context = new FunewsManagementContext();
+        var article = await context.NewsArticles
             .Include(a => a.Tags)
             .FirstOrDefaultAsync(a => a.NewsArticleId == id);
         if (article != null)
@@ -77,11 +86,11 @@ public static class NewsArticleDao
             if (article.Tags.Any())
             {
                 article.Tags.Clear();
-                await Context.SaveChangesAsync();
+                await context.SaveChangesAsync();
             }
 
-            Context.NewsArticles.Remove(article);
-            await Context.SaveChangesAsync();
+            context.NewsArticles.Remove(article);
+            await context.SaveChangesAsync();
         }
     }
 }

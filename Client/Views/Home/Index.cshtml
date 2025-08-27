@@ -24,7 +24,7 @@
         <div class="row g-4">
             <div class="col-md-3 col-6">
                 <div class="text-center p-4 bg-white rounded-3 shadow-sm">
-                    <div class="text-primary fs-1 fw-bold mb-2">@(Model?.NewsArticles?.Count ?? 0)</div>
+                    <div class="text-primary fs-1 fw-bold mb-2" id="totalArticlesCount">0</div>
                     <div class="text-muted fw-semibold text-uppercase small">Total Articles</div>
                 </div>
             </div>
@@ -36,15 +36,13 @@
             </div>
             <div class="col-md-3 col-6">
                 <div class="text-center p-4 bg-white rounded-3 shadow-sm">
-                    <div class="text-primary fs-1 fw-bold mb-2">@(Model?.NewsArticles?.Select(a =>
-                                                a.AccountName).Distinct().Count() ?? 0)</div>
+                    <div class="text-primary fs-1 fw-bold mb-2" id="totalAuthorsCount">0</div>
                     <div class="text-muted fw-semibold text-uppercase small">Authors</div>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="text-center p-4 bg-white rounded-3 shadow-sm">
-                    <div class="text-primary fs-1 fw-bold mb-2">@(Model?.NewsArticles?.Count(a => a.NewsStatus == true)
-                                                ?? 0)</div>
+                    <div class="text-primary fs-1 fw-bold mb-2" id="activeArticlesCount">0</div>
                     <div class="text-muted fw-semibold text-uppercase small">Active Articles</div>
                 </div>
             </div>
@@ -61,15 +59,15 @@
                         <i class="fas fa-newspaper me-2 text-primary"></i>
                         Latest Articles
                     </h2>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-outline-primary active" data-filter="all">
+                    <div class="btn-group" role="group" id="categoryFilters">
+                        <button type="button" class="btn btn-outline-primary active" data-filter="all" onclick="filterArticles('all')">
                             <i class="fas fa-th-large me-1"></i>All
                         </button>
                         @if (Model?.Categories != null)
                         {
                             @foreach (var category in Model.Categories.Take(5))
                             {
-                                <button type="button" class="btn btn-outline-primary" data-filter="@category.CategoryId">
+                                <button type="button" class="btn btn-outline-primary" data-filter="@category.CategoryId" onclick="filterArticles(@category.CategoryId)">
                                     <i class="fas fa-tag me-1"></i>@category.CategoryName
                                 </button>
                             }
@@ -78,80 +76,35 @@
                 </div>
             </div>
         </div>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            @if (Model?.NewsArticles != null && Model.NewsArticles.Any())
-            {
-                @foreach (var article in Model.NewsArticles.Take(6))
-                {
-                    <div class="col" data-category="@article.CategoryId">
-                        <div class="card h-100 shadow-sm border-0 rounded-3 article-card">
-                            <div class="card-header @GetCategoryColor(article.CategoryName) text-white border-0 rounded-top-3">
-                                <h6 class="mb-0 fw-semibold">
-                                    <i class="fas fa-tag me-2"></i>@(article.CategoryName ?? "Uncategorized")
-                                </h6>
-                            </div>
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold text-dark mb-3">@article.NewsTitle</h5>
-                                <p class="card-text text-muted flex-grow-1">
-                                    @(article.Headline?.Length > 100 ? article.Headline.Substring(0, 100) + "..." :
-                                                                article.Headline)
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center mt-3">
-                                    <div class="d-flex align-items-center">
-                                        <div class="@GetCategoryColor(article.CategoryName) text-white rounded-circle d-flex align-items-center justify-content-center me-2"
-                                            style="width: 32px; height: 32px;">
-                                            <small class="fw-bold">@GetInitials(article.AccountName)</small>
-                                        </div>
-                                        <div>
-                                            <div class="fw-semibold small">@(article.AccountName ?? "Anonymous")</div>
-                                            <div class="text-muted small">@(article.NewsStatus == true ? "Active" : "Inactive")
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="btn @GetCategoryColor(article.CategoryName) btn-sm">
-                                        <i class="fas fa-arrow-right me-1"></i>Read More
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
-            }
-            else
-            {
-                <div class="col-12">
-                    <div class="text-center py-5">
-                        <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
-                        <h4 class="text-muted">No articles available</h4>
-                        <p class="text-muted">Check back later for the latest news.</p>
-                    </div>
-                </div>
-            }
-        </div>
-        @if (Model?.NewsArticles != null && Model.NewsArticles.Count() > 6)
-        {
-            <div class="row mt-5">
-                <div class="col-12">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                    <i class="fas fa-chevron-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">
-                                    <i class="fas fa-chevron-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+
+        <div id="loadingSpinner" class="text-center py-5" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
             </div>
-        }
+            <p class="mt-2 text-muted">Đang tải bài viết...</p>
+        </div>
+
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="articlesContainer">
+
+        </div>
+
+
+        <div id="noArticlesMessage" class="col-12 text-center py-5" style="display: none;">
+            <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
+            <h4 class="text-muted">Không có bài viết nào</h4>
+            <p class="text-muted">Không tìm thấy bài viết cho danh mục này.</p>
+        </div>
+
+        <div class="row mt-5" id="paginationContainer" style="display: none;">
+            <div class="col-12">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center" id="paginationList">
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 </section>
 <footer class="bg-dark text-white py-4 mt-5">
@@ -166,7 +119,6 @@
         </div>
     </div>
 </footer>
-<script src="/Js/Home.js"></script>
 <style>
     .bg-gradient-primary {
         background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
@@ -265,4 +217,16 @@
         else
             return "AN";
     }
+}
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function() {
+            console.log('Document ready, jQuery version:', $.fn.jquery);
+            loadStats();
+            loadArticles();
+        });
+    </script>
+    <script src="~/Js/Home.js" asp-append-version="true"></script>
 }

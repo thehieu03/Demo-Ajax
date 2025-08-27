@@ -269,4 +269,3 @@ D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\refint\Server.dll
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\Server.pdb
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\Server.genruntimeconfig.cache
 D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\ref\Server.dll
-D:\BackEndC#\TheHieuPRN232\Server\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

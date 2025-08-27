@@ -6,10 +6,10 @@ namespace DataAccess.DAO;
 
 public static class CategoryDao
 {
-    private static readonly FunewsManagementContext Context = FunewsManagementContext.Instance;
-
-    public static async Task<IEnumerable<CategoryResponse>> GetCategories() =>
-        await Context.Categories.Select(c => new CategoryResponse
+    public static async Task<IEnumerable<CategoryResponse>> GetCategories()
+    {
+        using var context = new FunewsManagementContext();
+        return await context.Categories.Select(c => new CategoryResponse
         {
             CategoryId = c.CategoryId,
             CategoryName = c.CategoryName ?? string.Empty,
@@ -18,19 +18,25 @@ public static class CategoryDao
             IsActive = c.IsActive,
             ParentCategoryName = c.ParentCategory != null ? c.ParentCategory.CategoryName : null
         }).ToListAsync();
+    }
 
-    public static async Task<Category?> GetCategoryById(short id) =>
-        await Context.Categories.FindAsync(id);
+    public static async Task<Category?> GetCategoryById(short id)
+    {
+        using var context = new FunewsManagementContext();
+        return await context.Categories.FindAsync(id);
+    }
 
     public static async Task CreateCategory(Category category)
     {
-        Context.Categories.Add(category);
-        await Context.SaveChangesAsync();
+        using var context = new FunewsManagementContext();
+        context.Categories.Add(category);
+        await context.SaveChangesAsync();
     }
 
     public static async Task UpdateCategory(Category category)
     {
-        var existing = await Context.Categories
+        using var context = new FunewsManagementContext();
+        var existing = await context.Categories
             .FirstOrDefaultAsync(c => c.CategoryId == category.CategoryId);
         if (existing == null)
         {
@@ -42,17 +48,17 @@ public static class CategoryDao
         existing.ParentCategoryId = category.ParentCategoryId;
         existing.IsActive = category.IsActive;
 
-        await Context.SaveChangesAsync();
+        await context.SaveChangesAsync();
     }
 
     public static async Task DeleteCategory(short id)
     {
-        var category = await Context.Categories.FindAsync(id);
+        using var context = new FunewsManagementContext();
+        var category = await context.Categories.FindAsync(id);
         if (category != null)
         {
-            Context.Categories.Remove(category);
-            await Context.SaveChangesAsync();
+            context.Categories.Remove(category);
+            await context.SaveChangesAsync();
         }
-
     }
 }

@@ -13,6 +13,7 @@ public static class RegisterServices
         services.AddScoped<ITagRepository, TagRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<INewsArticleRepository, NewsArticleRepository>();
+        services.AddScoped<IEmailService, EmailService>();
         services.AddDbContext<FunewsManagementContext>(options =>
         {
             options.UseSqlServer(configuration.GetConnectionString("MyCnn"));

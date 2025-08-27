@@ -8,7 +8,7 @@
 <div class="container mt-5 pt-4">
     <div class="row">
         <div class="col-12">
-            <!-- Header với nút Add ở ngoài card -->
+
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
                     <h2 class="mb-1">
@@ -124,7 +124,7 @@
     </div>
 </div>
 
-<!-- Modal xác nhận xóa -->
+
 <div class="modal fade" id="deleteModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -157,7 +157,7 @@ function confirmDelete(id, name) {
     document.getElementById('deleteTagName').textContent = name;
     document.getElementById('deleteForm').action = '@Url.Action("Delete", "AdminTag")';
     
-    // Thêm input hidden để chứa ID
+
     let hiddenInput = document.getElementById('deleteId');
     if (!hiddenInput) {
         hiddenInput = document.createElement('input');
@@ -172,7 +172,7 @@ function confirmDelete(id, name) {
     modal.show();
 }
 
-// Auto-hide alerts after 5 seconds
+
 document.addEventListener('DOMContentLoaded', function() {
     const alerts = document.querySelectorAll('.alert');
     alerts.forEach(alert => {

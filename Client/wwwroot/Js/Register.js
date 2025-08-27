@@ -4,15 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const accountEmailInput = document.getElementById('accountEmail');
     const accountPasswordInput = document.getElementById('accountPassword');
     
-    // Biến để tránh gọi API quá nhiều lần
     let emailCheckTimeout = null;
     let lastCheckedEmail = '';
     
-    // Lấy base URL từ window object hoặc sử dụng default
     const baseUrl = window.apiBaseUrl || 'http://localhost:5173/api';
-    console.log('API Base URL:', baseUrl);
 
-    // Validation functions
     function validateAccountName() {
         const value = accountNameInput.value.trim();
         if (value.length < 2) {
@@ -43,86 +39,86 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Hàm kiểm tra email trùng lặp bằng fetch API
     async function checkEmailExists(email) {
         try {
-            // Hiển thị trạng thái đang kiểm tra
             const checkingSpan = document.createElement('span');
-            checkingSpan.className = 'text-info small';
-            checkingSpan.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Đang kiểm tra email...';
-            accountEmailInput.parentElement.parentElement.appendChild(checkingSpan);
+            checkingSpan.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang kiểm tra...';
+            checkingSpan.className = 'text-info small ms-2';
+            checkingSpan.id = 'emailCheckingSpinner';
             
-            // Sử dụng URL đúng từ configuration
+            accountEmailInput.parentNode.appendChild(checkingSpan);
+            
             const apiUrl = `${baseUrl}/account/getAccountByEmail?email=${encodeURIComponent(email)}`;
-            console.log('Gọi API kiểm tra email:', apiUrl);
             
             const response = await fetch(apiUrl);
             
-            console.log('Response status:', response.status);
-            console.log('Response ok:', response.ok);
-            
-            // Xóa trạng thái đang kiểm tra
-            checkingSpan.remove();
+            const spinner = document.getElementById('emailCheckingSpinner');
+            if (spinner) {
+                spinner.remove();
+            }
             
             if (response.ok) {
-                // Email đã tồn tại
-                console.log('Email đã tồn tại');
-                return true;
+                const data = await response.json();
+                return data !== null && data !== undefined;
             } else if (response.status === 404) {
-                // Email chưa tồn tại
-                console.log('Email chưa tồn tại');
                 return false;
             } else {
-                // Có lỗi khác
-                console.error('Lỗi khi kiểm tra email:', response.statusText);
                 return false;
             }
         } catch (error) {
-            console.error('Lỗi khi gọi API kiểm tra email:', error);
+            const spinner = document.getElementById('emailCheckingSpinner');
+            if (spinner) {
+                spinner.remove();
+            }
             return false;
         }
     }
 
-    // Hàm validate email với kiểm tra trùng lặp
     async function validateEmailWithDuplicateCheck() {
-        const value = accountEmailInput.value.trim();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        if (!value) {
-            showError(accountEmailInput, 'Email không được để trống');
-            return false;
-        }
-        if (!emailRegex.test(value)) {
-            showError(accountEmailInput, 'Email không hợp lệ');
+        const basicValidation = validateEmail();
+        if (!basicValidation) {
             return false;
         }
 
-        // Nếu email đã được kiểm tra trước đó và giống nhau, không cần kiểm tra lại
-        if (lastCheckedEmail === value) {
+        const email = accountEmailInput.value.trim();
+        
+        if (email === lastCheckedEmail) {
             return true;
         }
 
-        // Kiểm tra email trùng lặp
-        const emailExists = await checkEmailExists(value);
-        if (emailExists) {
-            showError(accountEmailInput, 'Email đã được sử dụng. Vui lòng chọn email khác.');
-            return false;
+        if (emailCheckTimeout) {
+            clearTimeout(emailCheckTimeout);
         }
 
-        // Lưu email đã kiểm tra
-        lastCheckedEmail = value;
-        clearError(accountEmailInput);
-        return true;
+        return new Promise((resolve) => {
+            emailCheckTimeout = setTimeout(async () => {
+                try {
+                    const exists = await checkEmailExists(email);
+                    lastCheckedEmail = email;
+                    
+                    if (exists) {
+                        showError(accountEmailInput, 'Email này đã được sử dụng');
+                        resolve(false);
+                    } else {
+                        clearError(accountEmailInput);
+                        resolve(true);
+                    }
+                } catch (error) {
+                    clearError(accountEmailInput);
+                    resolve(true);
+                }
+            }, 800);
+        });
     }
 
     function validatePassword() {
-        const value = accountPasswordInput.value;
-        if (value.length < 2) {
-            showError(accountPasswordInput, 'Mật khẩu phải có ít nhất 2 ký tự');
+        const value = accountPasswordInput.value.trim();
+        if (value.length < 6) {
+            showError(accountPasswordInput, 'Mật khẩu phải có ít nhất 6 ký tự');
             return false;
         }
-        if (value.length > 100) {
-            showError(accountPasswordInput, 'Mật khẩu không được quá 100 ký tự');
+        if (value.length > 50) {
+            showError(accountPasswordInput, 'Mật khẩu không được quá 50 ký tự');
             return false;
         }
         clearError(accountPasswordInput);
@@ -130,80 +126,60 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showError(input, message) {
-        const errorSpan = input.parentElement.nextElementSibling;
-        if (errorSpan && errorSpan.classList.contains('text-danger')) {
-            errorSpan.textContent = message;
-        } else {
-            const span = document.createElement('span');
-            span.className = 'text-danger small';
-            span.textContent = message;
-            input.parentElement.parentElement.appendChild(span);
-        }
+        clearError(input);
+        
+        const errorSpan = document.createElement('span');
+        errorSpan.className = 'text-danger small error-message';
+        errorSpan.textContent = message;
+        
+        input.parentNode.appendChild(errorSpan);
         input.classList.add('is-invalid');
     }
 
     function clearError(input) {
-        const errorSpan = input.parentElement.parentElement.querySelector('.text-danger');
-        if (errorSpan) {
-            errorSpan.remove();
-        }
+        const errorMessages = input.parentNode.querySelectorAll('.error-message');
+        errorMessages.forEach(msg => msg.remove());
+        
         input.classList.remove('is-invalid');
+        input.classList.add('is-valid');
     }
 
-    // Event listeners for real-time validation
     accountNameInput.addEventListener('blur', validateAccountName);
-    accountEmailInput.addEventListener('blur', validateEmailWithDuplicateCheck);
     accountPasswordInput.addEventListener('blur', validatePassword);
-    
-    // Thêm event listener cho email input để kiểm tra real-time
+
+    accountEmailInput.addEventListener('blur', async function() {
+        await validateEmailWithDuplicateCheck();
+    });
+
     accountEmailInput.addEventListener('input', function() {
-        const value = this.value.trim();
-        
-        // Clear timeout cũ nếu có
         if (emailCheckTimeout) {
             clearTimeout(emailCheckTimeout);
         }
         
-        // Clear error nếu user đang nhập
-        if (value && !lastCheckedEmail.includes(value)) {
-            clearError(this);
+        const spinner = document.getElementById('emailCheckingSpinner');
+        if (spinner) {
+            spinner.remove();
         }
         
-        // Đặt timeout để kiểm tra email sau khi user ngừng nhập 500ms
-        if (value && value.includes('@')) {
-            emailCheckTimeout = setTimeout(async () => {
-                await validateEmailWithDuplicateCheck();
-            }, 500);
+        if (accountEmailInput.value.trim() !== lastCheckedEmail) {
+            const errorMessages = accountEmailInput.parentNode.querySelectorAll('.error-message');
+            errorMessages.forEach(msg => {
+                if (msg.textContent.includes('đã được sử dụng')) {
+                    msg.remove();
+                }
+            });
         }
     });
 
-    // Form submission
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        const isNameValid = validateAccountName();
-        const isEmailValid = await validateEmailWithDuplicateCheck();
-        const isPasswordValid = validatePassword();
-
-        if (isNameValid && isEmailValid && isPasswordValid) {
-            // Show loading state
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Đang tạo tài khoản...';
-            submitBtn.disabled = true;
-
-            // Submit form
+        const nameValid = validateAccountName();
+        const passwordValid = validatePassword();
+        const emailValid = await validateEmailWithDuplicateCheck();
+        
+        if (nameValid && emailValid && passwordValid) {
             form.submit();
         }
-    });
-
-    // Auto-hide alerts after 5 seconds
-    const alerts = document.querySelectorAll('.alert');
-    alerts.forEach(alert => {
-        setTimeout(() => {
-            if (alert.parentElement) {
-                alert.remove();
-            }
-        }, 5000);
     });
 });

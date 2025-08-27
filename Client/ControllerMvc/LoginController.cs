@@ -83,4 +83,46 @@ public class LoginController : Controller
         return RedirectToAction("Index");
     }
 
+    [HttpGet]
+    public IActionResult ForgotPassword()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ForgotPassword(ForgotPasswordRequest request)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(request);
+        }
+
+        try
+        {
+            var response = await _client.PostAsJsonAsync(url + "/account/forgotPassword", request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["SuccessMessage"] = "Mật khẩu mới đã được gửi đến email của bạn!";
+                return RedirectToAction("Index");
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                TempData["ErrorMessage"] = "Email không tồn tại trong hệ thống";
+                return View(request);
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                TempData["ErrorMessage"] = "Có lỗi xảy ra, vui lòng thử lại";
+                return View(request);
+            }
+        }
+        catch (Exception ex)
+        {
+            TempData["ErrorMessage"] = $"Có lỗi xảy ra: {ex.Message}";
+            return View(request);
+        }
+    }
+
 }

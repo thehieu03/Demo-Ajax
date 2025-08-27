@@ -38,7 +38,7 @@ public static class RegisterServices
         app.UseRouting();
         app.MapControllerRoute(
             name: "default",
-            pattern: "{controller=AdminCategory}/{action=Index}/{id?}");
+            pattern: "{controller=Home}/{action=Index}/{id?}");
             
         return app;
     }
