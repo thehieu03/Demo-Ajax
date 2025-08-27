@@ -46,7 +46,6 @@
                         </a>
                     </li>
 
-                    @* Chỉ hiện Account khi đã đăng nhập (tuỳ bạn) *@
                     @if (isLoggedIn)
                     {
                         <li class="nav-item">
@@ -57,7 +56,6 @@
                         </li>
                     }
 
-                    @* Nếu chưa đăng nhập: hiện Login *@
                     @if (!isLoggedIn)
                     {
                         <li class="nav-item">
@@ -75,6 +73,11 @@
                                 <i class="fas fa-circle-user me-1"></i> @username
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="NewsArticle" asp-action="Create">
+                                        <i class="fas fa-plus me-2"></i> Tạo bài viết mới
+                                    </a>
+                                </li>
                                 <li>
                                     <a class="dropdown-item" asp-controller="UserAccount" asp-action="Index">
                                         <i class="fas fa-id-badge me-2"></i> Tài khoản
@@ -97,6 +100,7 @@
     </nav>
 
     <div class="container">
+        
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

@@ -1,0 +1,121 @@
+@model Entity.ModelRequest.CreateNewsArticleRequest
+@{
+    ViewData["Title"] = "Create News Article";
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <h2 class="mb-4">
+                <i class="fas fa-plus me-2"></i>Tạo bài viết mới
+            </h2>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <div class="mb-3">
+                            <label asp-for="NewsTitle" class="form-label">Tiêu đề bài viết</label>
+                            <input asp-for="NewsTitle" class="form-control" placeholder="Nhập tiêu đề bài viết..." required />
+                            <span asp-validation-for="NewsTitle" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Headline" class="form-label">Tóm tắt</label>
+                            <input asp-for="Headline" class="form-control" placeholder="Nhập tóm tắt bài viết..." required />
+                            <span asp-validation-for="Headline" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="NewsContent" class="form-label">Nội dung bài viết</label>
+                            <textarea asp-for="NewsContent" rows="8" class="form-control" placeholder="Nhập nội dung bài viết..." required></textarea>
+                            <span asp-validation-for="NewsContent" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="NewsSource" class="form-label">Nguồn</label>
+                            <input asp-for="NewsSource" class="form-control" placeholder="Nhập nguồn bài viết..." />
+                            <span asp-validation-for="NewsSource" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CategoryId" class="form-label">Chuyên mục</label>
+                            <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select">
+                                <option value="">-- Chọn chuyên mục --</option>
+                            </select>
+                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Tags</label>
+                            <div class="row">
+                                @if (ViewBag.Tags != null)
+                                {
+                                    @foreach (var tag in ViewBag.Tags)
+                                    {
+                                        <div class="col-md-4 mb-2">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="TagIds" value="@tag.TagId" id="tag_@tag.TagId" />
+                                                <label class="form-check-label" for="tag_@tag.TagId">
+                                                    @tag.TagName
+                                                    @if (!string.IsNullOrEmpty(tag.Note))
+                                                    {
+                                                        <small class="text-muted d-block">@tag.Note</small>
+                                                    }
+                                                </label>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="col-12">
+                                        <p class="text-muted">Không có tags nào.</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" asp-for="NewsStatus" />
+                            <label class="form-check-label" asp-for="NewsStatus">Xuất bản ngay</label>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Đăng bài
+                            </button>
+                            <a asp-controller="UserAccount" asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-times me-2"></i>Hủy
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('form').on('submit', function(e) {
+                var isValid = true;
+                
+                $('input[required], textarea[required]').each(function() {
+                    if (!$(this).val().trim()) {
+                        $(this).addClass('is-invalid');
+                        isValid = false;
+                    } else {
+                        $(this).removeClass('is-invalid');
+                    }
+                });
+                
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Vui lòng điền đầy đủ thông tin bắt buộc.');
+                }
+            });
+        });
+    </script>
+}
+

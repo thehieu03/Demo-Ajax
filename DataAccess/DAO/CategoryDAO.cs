@@ -30,7 +30,18 @@ public static class CategoryDao
 
     public static async Task UpdateCategory(Category category)
     {
-        Context.Categories.Update(category);
+        var existing = await Context.Categories
+            .FirstOrDefaultAsync(c => c.CategoryId == category.CategoryId);
+        if (existing == null)
+        {
+            return;
+        }
+
+        existing.CategoryName = category.CategoryName;
+        existing.CategoryDesciption = category.CategoryDesciption;
+        existing.ParentCategoryId = category.ParentCategoryId;
+        existing.IsActive = category.IsActive;
+
         await Context.SaveChangesAsync();
     }
 

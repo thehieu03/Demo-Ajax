@@ -64,7 +64,7 @@ CREATE INDEX IX_RefreshTokens_AccountId ON [dbo].[RefreshTokens](AccountId);";
             }
             finally
             {
-                try { await conn.CloseAsync(); } catch { /* ignore */ }
+                try { await conn.CloseAsync(); } catch { }
             }
 
             while (!stoppingToken.IsCancellationRequested)

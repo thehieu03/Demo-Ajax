@@ -12,6 +12,7 @@ public static class RegisterServices
         builder.AddHttpClient<AdminAccountController>();
         builder.AddHttpClient<AdminCategoryController>();
         builder.AddHttpClient<AdminNewsArticleController>();
+        builder.AddHttpClient<NewsArticleController>();
         builder.AddHttpClient<AdminTagController>();
         builder.AddHttpClient<UserAccountController>();
         builder.AddSession(options =>
@@ -37,7 +38,7 @@ public static class RegisterServices
         app.UseRouting();
         app.MapControllerRoute(
             name: "default",
-            pattern: "{controller=Home}/{action=Index}/{id?}");
+            pattern: "{controller=AdminCategory}/{action=Index}/{id?}");
             
         return app;
     }

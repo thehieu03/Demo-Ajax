@@ -36,6 +36,31 @@ public static class NewsArticleDao
         await Context.SaveChangesAsync();
     }
 
+    public static async Task<NewsArticle> CreateNewsArticle(NewsArticle newsArticle)
+    {
+        var allIds = await Context.NewsArticles
+            .AsNoTracking()
+            .Select(x => x.NewsArticleId)
+            .ToListAsync();
+
+        var maxNumericId = allIds
+            .Select(s => int.TryParse(s, out var n) ? n : 0)
+            .DefaultIfEmpty(0)
+            .Max();
+
+        var nextId = maxNumericId + 1;
+        newsArticle.NewsArticleId = nextId.ToString();
+
+        if (!newsArticle.CreatedDate.HasValue)
+        {
+            newsArticle.CreatedDate = DateTime.UtcNow;
+        }
+
+        Context.NewsArticles.Add(newsArticle);
+        await Context.SaveChangesAsync();
+        return newsArticle;
+    }
+
     public static async Task Update(NewsArticle newsArticle)
     {
         Context.NewsArticles.Update(newsArticle);
@@ -44,10 +69,18 @@ public static class NewsArticleDao
 
     public static async Task Delete(string id)
     {
-        var data = await Context.NewsArticles.FindAsync(id);
-        if (data != null)
+        var article = await Context.NewsArticles
+            .Include(a => a.Tags)
+            .FirstOrDefaultAsync(a => a.NewsArticleId == id);
+        if (article != null)
         {
-            Context.NewsArticles.Remove(data);
+            if (article.Tags.Any())
+            {
+                article.Tags.Clear();
+                await Context.SaveChangesAsync();
+            }
+
+            Context.NewsArticles.Remove(article);
             await Context.SaveChangesAsync();
         }
     }

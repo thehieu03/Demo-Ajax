@@ -9,7 +9,9 @@ public class NewsArticleRepository :INewsArticleRepository
 
     public Task<NewsArticle> GetById(string id)=> NewsArticleDao.GetById(id);
 
-    public Task Create(NewsArticle entity)=> NewsArticleDao.Create(entity);
+    public Task Create(NewsArticle entity)=> NewsArticleDao.CreateNewsArticle(entity);
+
+    public Task<NewsArticle> AddAsync(NewsArticle entity) => NewsArticleDao.CreateNewsArticle(entity);
 
     public Task Update(NewsArticle entity)=> NewsArticleDao.Update(entity);
 

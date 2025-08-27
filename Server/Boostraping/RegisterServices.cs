@@ -45,6 +45,12 @@ public static class RegisterServices
 
     public static WebApplication UseBoostraping(this WebApplication app)
     {
+        app.UseCors(builder =>
+            builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+        app.UseAuthentication();
+        app.UseAuthorization();
         app.MapControllers();
         
         return app;

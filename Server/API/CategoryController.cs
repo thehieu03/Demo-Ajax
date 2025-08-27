@@ -55,6 +55,22 @@ namespace Server.API
             }
             return Ok(data);
         }
+        [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<CategoryResponse>> Put(short id, [FromBody] CategoryAdd category)
+        {
+            var existing = await _categoryRepository.GetById(id);
+            if (existing == null)
+            {
+                return NotFound();
+            }
+            var updated = _mapper.Map<Category>(category);
+            updated.CategoryId = id;
+            await _categoryRepository.Update(updated);
+            var data = _mapper.Map<CategoryResponse>(updated);
+            return Ok(data);
+        }
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Entity.ModelResponse.CategoryResponse>
+@{
     ViewData["Title"] = "Admin Category";
     Layout = "_LayoutAdmin";
 }
@@ -11,13 +12,77 @@
             </h2>
             <div class="card shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">Category List</h5>
-                    <p class="card-text">This is the Category management page for administrators.</p>
-                    <button class="btn btn-primary">
-                        <i class="fas fa-plus me-2"></i>Add New Category
-                    </button>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <h5 class="card-title mb-0">Category List</h5>
+                            <small class="text-muted">Danh sách chuyên mục</small>
+                        </div>
+                        <a class="btn btn-primary" asp-controller="AdminCategory" asp-action="Create">
+                            <i class="fas fa-plus me-2"></i>Add New Category
+                        </a>
+                    </div>
+
+                    @if (Model == null || !Model.Any())
+                    {
+                        <div class="alert alert-info mb-0">Không có dữ liệu chuyên mục.</div>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover align-middle mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Tên</th>
+                                        <th scope="col">Mô tả</th>
+                                        <th scope="col">Danh mục cha</th>
+                                        <th scope="col">Kích hoạt</th>
+                                        <th scope="col" class="text-end">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @{
+                                    var index = 1;
+                                }
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th scope="row">@index</th>
+                                        <td>@item.CategoryName</td>
+                                        <td class="text-truncate" style="max-width: 360px;" title="@item.CategoryDesciption">@item.CategoryDesciption</td>
+                                        <td>@(string.IsNullOrWhiteSpace(item.ParentCategoryName) ? "-" : item.ParentCategoryName)</td>
+                                        <td>
+                                            @if (item.IsActive.GetValueOrDefault())
+                                            {
+                                                <span class="badge bg-success">Active</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-secondary">Inactive</span>
+                                            }
+                                        </td>
+                                        <td class="text-end">
+                                            <a class="btn btn-sm btn-outline-secondary me-1" asp-controller="AdminCategory" asp-action="Edit" asp-route-id="@item.CategoryId">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <form asp-controller="AdminCategory" asp-action="Delete" asp-route-id="@item.CategoryId" method="post" class="d-inline" onsubmit="return confirm('Xác nhận xóa?');">
+                                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    index++;
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    console.log("Admin Category Page Loaded");
+</script>

@@ -15,21 +15,24 @@ namespace Client.ControllerMvc
             _configuration = configuration;
             url = _configuration.GetValue<string>("URL") ?? throw new Exception("URL configuration is missing");
         }
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var token = HttpContext.Session.GetString("Token");
             if (string.IsNullOrEmpty(token))
             {
                 return RedirectToAction("Index", "Login");
             }
+
             _client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-            var response = await _client.GetAsync(url + "/account/getAccountById");
-            if (!response.IsSuccessStatusCode)
+            var response = _client.GetAsync(url + "/account/getAccountById").Result;
+
+            if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index", "Login");
+                var account = response.Content.ReadFromJsonAsync<SystemAccountUserResponse>().Result;
+                return View(account);
             }
-            var result = await response.Content.ReadFromJsonAsync<SystemAccountUserResponse>();
-            return View(result);
+
+            return RedirectToAction("Index", "Login");
         }
         [HttpPost]
         public async Task<IActionResult> Update(Entity.ModelResponse.SystemAccountUserResponse model)
