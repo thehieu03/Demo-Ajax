@@ -2,3 +2,4 @@ wwwroot\css\Home.css
 wwwroot\css\Login.css
 wwwroot\Js\Home.js
 wwwroot\Js\Login.js
+wwwroot\Js\Register.js

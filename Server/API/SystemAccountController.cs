@@ -1,5 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using Entity.ModelResponse;
+using Entity.ModelRequest;
+using Entity.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
@@ -110,16 +112,68 @@ namespace Server.API
             }
         }
         [HttpPost("createAccount")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateAccount([FromBody] CreateAccount create)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest("Input not found");
+                return BadRequest(ModelState);
             }
-            var account = _mapper.Map<SystemAccount>(create);
-            account.AccountRole = 1;
-            await _systemAccountRepository.Create(account);
-            return Ok("Create account successfully");
+
+            try
+            {
+                // Log thông tin đầu vào
+                Console.WriteLine($"[CREATE_ACCOUNT] Bắt đầu tạo tài khoản với email: {create.AccountEmail}");
+                
+                // Kiểm tra email đã tồn tại chưa
+                if (string.IsNullOrEmpty(create.AccountEmail))
+                {
+                    Console.WriteLine("[CREATE_ACCOUNT] Email trống");
+                    return BadRequest("Email không được để trống");
+                }
+                
+                var existingAccount = await _systemAccountRepository.GetByEmail(create.AccountEmail);
+                if (existingAccount != null)
+                {
+                    Console.WriteLine($"[CREATE_ACCOUNT] Email {create.AccountEmail} đã tồn tại");
+                    return BadRequest("Email đã được sử dụng. Vui lòng chọn email khác.");
+                }
+
+                var account = _mapper.Map<SystemAccount>(create);
+                account.AccountRole = 1; // Role 1 = User thường
+                
+                // Log thông tin account trước khi tạo
+                Console.WriteLine($"[CREATE_ACCOUNT] Account mapping thành công:");
+                Console.WriteLine($"  - AccountId: {account.AccountId}");
+                Console.WriteLine($"  - AccountName: {account.AccountName}");
+                Console.WriteLine($"  - AccountEmail: {account.AccountEmail}");
+                Console.WriteLine($"  - AccountRole: {account.AccountRole}");
+                Console.WriteLine($"  - AccountPassword: {account.AccountPassword}");
+                
+                // Đảm bảo AccountId = 0 để DAO tự động tạo ID
+                account.AccountId = 0;
+                Console.WriteLine($"[CREATE_ACCOUNT] Đã set AccountId = 0 để tự động tạo ID");
+                
+                await _systemAccountRepository.Create(account);
+                
+                Console.WriteLine($"[CREATE_ACCOUNT] Tạo tài khoản thành công cho email: {create.AccountEmail}");
+                return Ok("Tài khoản đã được tạo thành công!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[CREATE_ACCOUNT] Lỗi khi tạo tài khoản: {ex.Message}");
+                Console.WriteLine($"[CREATE_ACCOUNT] Stack trace: {ex.StackTrace}");
+                
+                // Log inner exception nếu có
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine($"[CREATE_ACCOUNT] Inner exception: {ex.InnerException.Message}");
+                    Console.WriteLine($"[CREATE_ACCOUNT] Inner stack trace: {ex.InnerException.StackTrace}");
+                }
+                
+                return BadRequest($"Lỗi khi tạo tài khoản: {ex.Message}");
+            }
         }
         [HttpGet("getAllAccount")]
         public async Task<ActionResult<SystemAccountResponse>> GetAllAccount()

@@ -1,0 +1,85 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Entity.ModelRequest.CreateAccount
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_Layout";
+}
+
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-light">
+    <div class="row w-100 justify-content-center">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-body p-4 p-md-5">
+                    <div class="text-center mb-4">
+                        <div class="bg-primary bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3 shadow-sm"
+                            style="width: 80px; height: 80px;">
+                            <i class="fas fa-user-plus text-white fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-2">Create Account</h4>
+                        <p class="text-muted mb-0">Join us today</p>
+                    </div>
+
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                    
+                    <form asp-controller="Login" asp-action="Register" method="post" id="registerForm">
+                        <div class="mb-3">
+                            <label for="accountName" class="form-label fw-semibold text-dark">
+                                <i class="fas fa-user text-primary me-2"></i>Full Name
+                            </label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="fas fa-user text-muted"></i>
+                                </span>
+                                <input id="accountName" asp-for="AccountName" type="text" class="form-control border-start-0"
+                                    placeholder="Enter your full name" />
+                            </div>
+                            <span asp-validation-for="AccountName" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="accountEmail" class="form-label fw-semibold text-dark">
+                                <i class="fas fa-envelope text-primary me-2"></i>Email Address
+                            </label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="fas fa-envelope text-muted"></i>
+                                </span>
+                                <input id="accountEmail" asp-for="AccountEmail" type="email" class="form-control border-start-0"
+                                    placeholder="Enter your email address" />
+                            </div>
+                            <span asp-validation-for="AccountEmail" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="accountPassword" class="form-label fw-semibold text-dark">
+                                <i class="fas fa-lock text-primary me-2"></i>Password
+                            </label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="fas fa-lock text-muted"></i>
+                                </span>
+                                <input id="accountPassword" asp-for="AccountPassword" type="password"
+                                    class="form-control border-start-0" placeholder="Enter your password" />
+                            </div>
+                            <span asp-validation-for="AccountPassword" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-primary btn-lg fw-semibold shadow-sm">
+                                <i class="fas fa-user-plus me-2"></i>Create Account
+                            </button>
+                        </div>
+
+                        <div class="text-center">
+                            <span class="text-muted">Already have an account? </span>
+                            <a asp-controller="Login" asp-action="Index" class="text-decoration-none text-primary fw-semibold">Sign in</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/Js/Register.js"></script>

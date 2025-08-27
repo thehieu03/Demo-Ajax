@@ -1,4 +1,7 @@
-﻿namespace Client.ControllerMvc;
+﻿using Entity.ModelRequest;
+using Entity.ModelResponse;
+
+namespace Client.ControllerMvc;
 
 public class LoginController : Controller
 {
@@ -52,6 +55,32 @@ public class LoginController : Controller
         {
             return RedirectToAction("Index", "Home");
         }
+    }
+
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Register(CreateAccount createAccount)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(createAccount);
+        }
+
+        var response = await _client.PostAsJsonAsync(url + "/account/createAccount", createAccount);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var errorMessage = await response.Content.ReadAsStringAsync();
+            ModelState.AddModelError("", $"Đăng ký thất bại: {errorMessage}");
+            return View(createAccount);
+        }
+
+        TempData["SuccessMessage"] = "Tài khoản đã được tạo thành công! Vui lòng đăng nhập.";
+        return RedirectToAction("Index");
     }
 
 }

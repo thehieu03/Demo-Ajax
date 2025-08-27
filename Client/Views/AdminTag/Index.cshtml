@@ -1,23 +1,186 @@
-﻿@{
-    ViewData["Title"] = "Admin Tag";
+﻿@model IEnumerable<Entity.ModelResponse.TagResponse>
+
+@{
+    ViewData["Title"] = "Quản lý Tag";
     Layout = "_LayoutAdmin";
 }
 
 <div class="container mt-5 pt-4">
     <div class="row">
         <div class="col-12">
-            <h2 class="mb-4">
-                <i class="fas fa-tags me-2"></i>Tag Management
-            </h2>
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Tag List</h5>
-                    <p class="card-text">This is the Tag management page for administrators.</p>
-                    <button class="btn btn-primary">
-                        <i class="fas fa-plus me-2"></i>Add New Tag
-                    </button>
+            <!-- Header với nút Add ở ngoài card -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="mb-1">
+                        <i class="fas fa-tags me-2"></i>Quản lý Tag
+                    </h2>
+                    <p class="text-muted mb-0">Danh sách tất cả tag trong hệ thống</p>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <a asp-controller="AdminTag" asp-action="Create" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Thêm Tag mới
+                    </a>
+                    <span class="badge bg-secondary fs-6">
+                        <i class="fas fa-tag me-1"></i>
+                        @Model?.Count() tag
+                    </span>
+                </div>
+            </div>
+            
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-0">
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show m-3" role="alert">
+                            <i class="fas fa-check-circle me-2"></i>
+                            @TempData["SuccessMessage"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show m-3" role="alert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            @TempData["ErrorMessage"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @if (Model != null && Model.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th class="border-0 ps-4">
+                                            <i class="fas fa-hashtag text-primary me-1"></i>ID
+                                        </th>
+                                        <th class="border-0">
+                                            <i class="fas fa-tag text-primary me-1"></i>Tên Tag
+                                        </th>
+                                        <th class="border-0">
+                                            <i class="fas fa-sticky-note text-primary me-1"></i>Ghi chú
+                                        </th>
+                                        <th class="border-0 text-center">
+                                            <i class="fas fa-cogs text-primary me-1"></i>Thao tác
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var tag in Model)
+                                    {
+                                        <tr class="border-bottom">
+                                            <td class="ps-4">
+                                                <span class="badge bg-secondary fs-6">@tag.TagId</span>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-info bg-gradient rounded-circle d-flex align-items-center justify-content-center me-3">
+                                                        <i class="fas fa-tag text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0 fw-semibold">@tag.TagName</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="text-muted">@(string.IsNullOrEmpty(tag.Note) ? "Không có ghi chú" : tag.Note)</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="btn-group" role="group">
+                                                    <a asp-controller="AdminTag" asp-action="Edit" asp-route-id="@tag.TagId" 
+                                                       class="btn btn-sm btn-outline-primary">
+                                                        <i class="fas fa-edit me-1"></i>Sửa
+                                                    </a>
+                                                    <button type="button" class="btn btn-sm btn-outline-danger" 
+                                                            onclick="confirmDelete(@tag.TagId, '@tag.TagName')">
+                                                        <i class="fas fa-trash me-1"></i>Xóa
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <div class="mb-3">
+                                <i class="fas fa-tags fa-3x text-muted"></i>
+                            </div>
+                            <h5 class="text-muted">Chưa có tag nào</h5>
+                            <p class="text-muted">Hệ thống chưa có tag nào được tạo.</p>
+                            <a asp-controller="AdminTag" asp-action="Create" class="btn btn-primary">
+                                <i class="fas fa-plus me-2"></i>Tạo tag đầu tiên
+                            </a>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal xác nhận xóa -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-exclamation-triangle me-2"></i>Xác nhận xóa
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn xóa tag <strong id="deleteTagName"></strong>?</p>
+                <p class="text-muted small">Hành động này không thể hoàn tác.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i>Hủy
+                </button>
+                <form id="deleteForm" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash me-1"></i>Xóa
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function confirmDelete(id, name) {
+    document.getElementById('deleteTagName').textContent = name;
+    document.getElementById('deleteForm').action = '@Url.Action("Delete", "AdminTag")';
+    
+    // Thêm input hidden để chứa ID
+    let hiddenInput = document.getElementById('deleteId');
+    if (!hiddenInput) {
+        hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = 'id';
+        hiddenInput.id = 'deleteId';
+        document.getElementById('deleteForm').appendChild(hiddenInput);
+    }
+    hiddenInput.value = id;
+    
+    const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    modal.show();
+}
+
+// Auto-hide alerts after 5 seconds
+document.addEventListener('DOMContentLoaded', function() {
+    const alerts = document.querySelectorAll('.alert');
+    alerts.forEach(alert => {
+        setTimeout(() => {
+            if (alert.parentElement) {
+                alert.remove();
+            }
+        }, 5000);
+    });
+});
+</script>
